@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利根フェス 2025 | 羽生市初開催！水と緑の体験型フェスティバル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* カスタムスタイル */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #F7F9FB;
+            overflow-x: hidden; /* 横スクロールを防止 */
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1593693397646-85675a415a7b?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+        
+        /* --- Animated Wave Start (修正版) --- */
+        .waves-container {
+            position:absolute; 
+            inset:auto 0 0 0; 
+            height:15vmin; /* 高さを低く調整 */
+            min-height:80px; /* 高さを低く調整 */
+            z-index:5; 
+            overflow:hidden;
+        }
+        .wave-layer { 
+            position:absolute; 
+            left:0; 
+            bottom:0; 
+            width:200%; 
+            height:100%; 
+            background-repeat: repeat-x;
+            background-size: 50% 100%;
+            will-change:transform;
+        }
+        
+        /* ヘッダーの波 */
+        .header-wave.back  { 
+            animation:wave-slide 56s linear infinite; /* スピードを遅く調整 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+            opacity: 0.5;
+        }
+        .header-wave.mid   { 
+            animation:wave-slide 36s linear infinite reverse; /* スピードを遅く調整 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+            opacity: 0.7;
+        }
+        .header-wave.front { 
+            animation:wave-slide 24s linear infinite; /* スピードを遅く調整 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+        }
+
+        /* フッターの波 */
+        .footer-wave.back  { 
+            animation:wave-slide 56s linear infinite; /* スピードを遅く調整 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%2306b6d4" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+             opacity: 0.5;
+        }
+        .footer-wave.mid   { 
+            animation:wave-slide 36s linear infinite reverse; /* スピードを遅く調整 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%2306b6d4" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+             opacity: 0.7;
+        }
+        .footer-wave.front { 
+            animation:wave-slide 24s linear infinite; /* スピードを遅く調整 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%2306b6d4" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+        }
+        
+        @keyframes wave-slide { 
+            from { transform: translateX(0) } 
+            to { transform: translateX(-50%) } 
+        }
+        @media (prefers-reduced-motion: reduce){ 
+            .wave-layer { 
+                animation:none 
+            } 
+        }
+        /* --- Animated Wave End --- */
+
+        /* --- Bubble Animation Start --- */
+        #bubble-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100; 
+        }
+        .bubble {
+            position: absolute;
+            animation-iteration-count: infinite, infinite;
+            animation-timing-function: linear, ease-in-out;
+            animation-direction: normal, alternate;
+            bottom: -150px;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateX(20px) scale(1.05);
+            }
+            100% {
+                transform: translateY(-120vh) translateX(-20px) scale(0.9);
+                opacity: 0;
+            }
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+        /* --- Bubble Animation End --- */
+
+        /* --- Scroll to Top Button --- */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 180, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 110;
+            opacity: 0;
+            transform: scale(0) translateY(50px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        #scrollTopBtn.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        #scrollTopBtn:hover {
+            background-color: rgba(0, 190, 255, 0.9);
+            transform: scale(1.1);
+        }
+        #scrollTopBtn svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        #scrollTopBtn:hover svg {
+            transform: translateY(-2px);
+        }
+        /* --- Scroll to Top Button End --- */
+
+
+        .card-hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .scroll-animation {
+            opacity: 0;
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(30px);
+        }
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 背景アニメーション用ラッパー -->
+    <div id="bubble-wrapper"></div>
+
+    <!-- ファーストビュー -->
+    <header class="relative h-[70vh] md:h-screen min-h-[500px] flex items-center justify-center text-white hero-bg">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center p-4">
+            <div class="fade-in-up">
+                <h1 class="font-poppins font-black text-5xl md:text-8xl lg:text-9xl tracking-tighter text-shadow">
+                    <span class="text-cyan-300">TONE</span> FES
+                </h1>
+                <p class="mt-4 text-lg md:text-2xl font-bold text-shadow">利根川であそびつくせ！！</p>
+                <p class="mt-2 text-sm md:text-base text-shadow">羽生市初開催！水と緑の体験型フェスティバル</p>
+            </div>
+
+            <div class="mt-8 bg-white/20 backdrop-blur-sm rounded-xl p-4 inline-block fade-in-up" style="animation-delay: 0.3s;">
+                <div class="font-poppins font-bold text-2xl md:text-4xl">2025.9.27<span class="text-lg md:text-2xl ml-2">SAT</span></div>
+                <div class="mt-1 text-sm md:text-base">at 利根川右岸 昭和橋上流</div>
+            </div>
+        </div>
+        
+        <!-- 波のアニメーション -->
+        <div class="waves-container" aria-hidden="true">
+          <div class="wave-layer header-wave back"></div>
+          <div class="wave-layer header-wave mid"></div>
+          <div class="wave-layer header-wave front"></div>
+        </div>
+    </header>
+
+    <main class="relative bg-cyan-100">
+        <!-- CONCEPT -->
+        <section id="concept" class="pt-10 md:pt-20 pb-10 md:pb-20">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <div class="scroll-animation">
+                    <h2 class="section-title text-4xl md:text-5xl text-cyan-700">CONCEPT</h2>
+                    <p class="mt-2 text-lg font-bold text-gray-700">都心から一番近い"大自然の遊び場"</p>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+                    <p class="mt-8 text-left md:text-center leading-relaxed">
+                        川の水のひんやりとした感触、足元の砂や石のゴツゴツ。
+                        魚や鳥たちの息吹を感じながら、思いっきり遊んで、学んで、発見する。<br class="hidden md:block">
+                        『利根フェス』は、子どもたちの最高の笑顔と、大人たちの「あの頃」のワクワクが詰まった、みんなの"実践川遊び"のステージです。<br>
+                        さあ、忘れられない夏の思い出を、ここ羽生で。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATTRACTIONS -->
+        <section id="attractions" class="bg-white py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center scroll-animation">
+                    <h2 class="section-title text-4xl md:text-5xl text-cyan-600">ATTRACTIONS</h2>
+                    <p class="mt-2 text-lg font-bold text-gray-700">4つの楽しみ方</p>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1: ACTIVE -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation">
+                        <div class="p-6 bg-cyan-500 text-white">
+                            <h3 class="font-poppins font-bold text-2xl">ACTIVE ZONE</h3>
+                            <p class="font-semibold">思いっきり遊ぶ！</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1543862408-817f54793504?q=80&w=2574&auto=format&fit=crop" alt="水鉄砲で遊ぶ子供" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>ボート川下り & レース</li>
+                                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>水上アスレチック</li>
+                                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>水鉄砲・水浴びゾーン</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Card 2: RELAX -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.1s;">
+                         <div class="p-6 bg-emerald-500 text-white">
+                            <h3 class="font-poppins font-bold text-2xl">RELAX & CHILL</h3>
+                            <p class="font-semibold">川のほとりで癒される</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1620756236233-06c8c4a16a8a?q=80&w=2574&auto=format&fit=crop" alt="テントサウナ" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>テントサウナ</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>石ころアート</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>水切り</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Card 3: KIDS & FAMILY -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.2s;">
+                         <div class="p-6 bg-amber-500 text-white">
+                            <h3 class="font-poppins font-bold text-2xl">KIDS & FAMILY</h3>
+                            <p class="font-semibold">親子で学ぶ・知る！</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1503788311252-3299b5a452d3?q=80&w=2670&auto=format&fit=crop" alt="子供が川の生き物を観察している様子" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>河川学習</li>
+                                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>はたらく乗り物大集合！</li>
+                                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>利根川の歴史展示</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Card 4: GOURMET -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.3s;">
+                        <div class="p-6 bg-rose-500 text-white">
+                            <h3 class="font-poppins font-bold text-2xl">GOURMET AREA</h3>
+                            <p class="font-semibold">お腹も大満足！</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1570468018335-35f7c32746a4?q=80&w=2574&auto=format&fit=crop" alt="フードトラック" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-gray-600">
+                                青空の下でめしあがれ！羽生グルメがキッチンカーで大集合！たくさん遊んだあとは、美味しいごはんでエネルギーチャージ！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DETAILS & ACCESS -->
+        <section id="details" class="py-20 md:py-32 bg-[#F7F9FB]">
+            <div class="container mx-auto px-6">
+                <div class="text-center scroll-animation">
+                    <h2 class="section-title text-4xl md:text-5xl text-cyan-600">DETAILS & ACCESS</h2>
+                    <p class="mt-2 text-lg font-bold text-gray-700">開催概要とアクセス</p>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div class="bg-white p-8 rounded-xl shadow-lg scroll-animation">
+                        <h3 class="font-bold text-2xl text-gray-800 border-b-2 border-cyan-300 pb-2">開催概要</h3>
+                        <dl class="mt-6 space-y-4">
+                            <div class="flex">
+                                <dt class="w-24 font-bold text-gray-700">日時</dt>
+                                <dd class="flex-1">2025年9月27日(土) 10:00-15:00 <br><span class="text-sm text-red-500">※雨天中止</span></dd>
+                            </div>
+                            <div class="flex">
+                                <dt class="w-24 font-bold text-gray-700">会場</dt>
+                                <dd class="flex-1">利根川右岸 昭和橋上流の砂州</dd>
+                            </div>
+                            <div class="flex">
+                                <dt class="w-24 font-bold text-gray-700">参加費</dt>
+                                <dd class="flex-1">入場無料<br><span class="text-sm text-gray-500">※一部コンテンツは有料の場合あり</span></dd>
+                            </div>
+                            <div class="flex">
+                                <dt class="w-24 font-bold text-gray-700">持ち物</dt>
+                                <dd class="flex-1">
+                                    <span class="font-semibold">必須:</span> タオル, 着替え, 帽子, 飲み物<br>
+                                    <span class="font-semibold">推奨:</span> 日焼け止め, ウォーターシューズ, 防水ケース
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden scroll-animation" style="transition-delay: 0.1s;">
+                        <div class="w-full h-80 bg-gray-200 flex items-center justify-center">
+                            <p class="text-gray-500">ここにGoogle Mapを埋め込みます</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター (修正版) -->
+    <footer class="relative bg-cyan-500 text-white overflow-hidden">
+        <!-- フッターの波 -->
+        <div class="waves-container" style="position: absolute; top: -1px; bottom: auto; left: 0; width: 100%; transform: rotate(180deg);">
+            <div class="wave-layer footer-wave back"></div>
+            <div class="wave-layer footer-wave mid"></div>
+            <div class="wave-layer footer-wave front"></div>
+        </div>
+        <div class="relative z-10 container mx-auto px-6 text-center pt-20 pb-10">
+            <h3 class="font-poppins font-bold text-2xl">TONE FES 2025</h3>
+            <div class="mt-8">
+                <p><span class="font-bold">主催:</span> 羽生利根川水辺プロジェクト実行委員会</p>
+                <p><span class="font-bold">共催:</span> ●●●●</p>
+                <p><span class="font-bold">後援:</span> 羽生市</p>
+            </div>
+            <div class="mt-6">
+                <p class="font-bold">お問い合わせ</p>
+                <p>羽生利根川水辺プロジェクト実行委員会事務局</p>
+                <p>TEL: 048-560-3119 / Email: kanko@city.hanyu.lg.jp</p>
+            </div>
+            <div class="mt-10 border-t border-cyan-400 pt-6">
+                <p class="text-sm text-cyan-100">&copy; 2025 TONE FES Executive Committee.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="ページトップへ戻る">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // スクロールアニメーション
+            const animatedElements = document.querySelectorAll('.scroll-animation');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            // 泡アニメーション
+            const bubbleWrapper = document.getElementById('bubble-wrapper');
+            if (bubbleWrapper) {
+                const bubbleColors = [
+                    'rgba(0, 191, 255, 0.6)',
+                    'rgba(173, 216, 230, 0.6)',
+                    'rgba(255, 255, 255, 0.6)'
+                ];
+                const numberOfBubbles = 25;
+                for (let i = 0; i < numberOfBubbles; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    
+                    const size = Math.random() * 60 + 20;
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    
+                    bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+                    
+                    bubble.style.boxShadow = `inset 0 0 ${size / 5}px rgba(255, 255, 255, 0.8)`;
+
+                    if (Math.random() > 0.5) {
+                        bubble.style.left = `${Math.random() * 20}%`;
+                    } else {
+                        bubble.style.right = `${Math.random() * 20}%`;
+                    }
+                    
+                    const floatDuration = Math.random() * 10 + 15;
+                    const morphDuration = Math.random() * 5 + 5;
+                    bubble.style.animationName = 'floatUp, morph';
+                    bubble.style.animationDuration = `${floatDuration}s, ${morphDuration}s`;
+                    
+                    const delay = Math.random() * -floatDuration;
+                    bubble.style.animationDelay = `${delay}s, ${delay}s`;
+
+                    bubbleWrapper.appendChild(bubble);
+                }
+            }
+
+            // ページトップへ戻るボタン
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollTopBtn.classList.add('visible');
+                    } else {
+                        scrollTopBtn.classList.remove('visible');
+                    }
+                });
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
