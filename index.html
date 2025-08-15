@@ -42,8 +42,9 @@
         .waves-container {
             position:absolute; 
             inset:auto 0 0 0; 
-            height:15vmin;
-            min-height:80px;
+            height: 20vw; /* vminからvwに変更し、より安定した表示に */
+            max-height: 150px; /* PCなど大画面で波が高くなりすぎないように上限を設定 */
+            min-height: 80px;
             z-index:5; 
             overflow:hidden;
         }
@@ -200,20 +201,14 @@
     <div id="bubble-wrapper"></div>
 
     <!-- ファーストビュー -->
-<header class="relative h-[70vh] md:h-screen min-h-[500px] flex items-start justify-center text-white hero-bg">
+    <header class="relative h-[70vh] md:h-screen min-h-[500px] flex items-center justify-center text-white hero-bg">
+        <!-- 位置を中央揃えに変更し、レスポンシブの余白を調整 -->
         <div class="relative z-10 text-center p-4 flex flex-col items-center pt-16 md:pt-24 lg:pt-28">
             <div class="fade-in-up">
+                <!-- ロゴ画像 -->
                 <img src="tonefes_rogo_RGB.png" alt="TONE FES ロゴ" class="w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
             </div>
-
-            </div>
-        
-        <div class="waves-container" aria-hidden="true">
-          <div class="wave-layer header-wave back"></div>
-          <div class="wave-layer header-wave mid"></div>
-          <div class="wave-layer header-wave front"></div>
         </div>
-    </header>
         
         <!-- ヘッダーの波のアニメーション -->
         <div class="waves-container" aria-hidden="true">
@@ -223,9 +218,64 @@
         </div>
     </header>
 
-    <main class="relative bg-cyan-100">
+    <!-- ===== 日時・場所セクション（新デザイン - 1カード） ===== -->
+    <section id="event-info" class="bg-cyan-100 py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 border-t-4 border-cyan-400 scroll-animation">
+                <div class="flex flex-col md:flex-row items-center justify-around text-center space-y-8 md:space-y-0 md:space-x-8">
+
+                    <!-- Date -->
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0h18M12 12.75h.008v.008H12v-.008Z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">DATE</h3>
+                        <p class="font-poppins font-black text-3xl md:text-4xl text-gray-800 mt-2">
+                            2025.9.27
+                        </p>
+                        <p class="font-bold text-xl text-cyan-600">SATURDAY</p>
+                    </div>
+
+                    <!-- Separator -->
+                    <div class="w-full h-px md:w-px md:h-24 bg-gray-200"></div>
+
+                    <!-- Time -->
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">TIME</h3>
+                        <p class="font-poppins font-black text-3xl md:text-4xl text-gray-800 mt-2">10:00<span class="text-2xl mx-1">-</span>15:00</p>
+                        <p class="font-bold text-xl text-cyan-600">OPEN - CLOSE</p>
+                    </div>
+
+                    <!-- Separator -->
+                    <div class="w-full h-px md:w-px md:h-24 bg-gray-200"></div>
+
+                    <!-- Location -->
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">LOCATION</h3>
+                        <p class="font-bold text-xl text-gray-800 mt-2 leading-tight">利根川右岸<br>昭和橋上流の砂州</p>
+                        <p class="font-bold text-lg text-cyan-600 mt-1">羽生市</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="relative">
         <!-- CONCEPT -->
-        <section id="concept" class="pt-10 md:pt-20 pb-10 md:pb-20">
+        <section id="concept" class="bg-[#F7F9FB] pt-20 md:pt-28 pb-10 md:pb-20">
             <div class="container mx-auto px-6 text-center max-w-4xl">
                 <div class="scroll-animation">
                     <h2 class="section-title text-4xl md:text-5xl text-cyan-700">CONCEPT</h2>
@@ -419,12 +469,13 @@
                     'rgba(173, 216, 230, 0.6)',
                     'rgba(255, 255, 255, 0.6)'
                 ];
-                const numberOfBubbles = 25;
+                const numberOfBubbles = 40; // 表示数を少し増やしました
                 for (let i = 0; i < numberOfBubbles; i++) {
                     const bubble = document.createElement('div');
                     bubble.classList.add('bubble');
                     
-                    const size = Math.random() * 60 + 20;
+                    // サイズを小さくしました (10pxから40pxの範囲)
+                    const size = Math.random() * 30 + 10; 
                     bubble.style.width = `${size}px`;
                     bubble.style.height = `${size}px`;
                     
