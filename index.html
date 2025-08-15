@@ -200,19 +200,20 @@
     <div id="bubble-wrapper"></div>
 
     <!-- ファーストビュー -->
-    <header class="relative h-[70vh] md:h-screen min-h-[500px] flex items-start justify-center text-white hero-bg">
-        <!-- 黒い背景を削除、レスポンシブの余白を調整 -->
-        <div class="relative z-10 text-center p-4 flex flex-col items-center pt-16 md:pt-24 lg:pt-32">
+<header class="relative h-[70vh] md:h-screen min-h-[500px] flex items-start justify-center text-white hero-bg">
+        <div class="relative z-10 text-center p-4 flex flex-col items-center pt-16 md:pt-24 lg:pt-28">
             <div class="fade-in-up">
-                <!-- ロゴ画像 -->
                 <img src="tonefes_rogo_RGB.png" alt="TONE FES ロゴ" class="w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
             </div>
 
-            <!-- 日付・時間・場所のデザイン -->
-            <div class="mt-8 fade-in-up w-full max-w-2xl" style="animation-delay: 0.3s;">
-                <img src="date-info.jpg" alt="開催日時と場所" class="w-full">
             </div>
+        
+        <div class="waves-container" aria-hidden="true">
+          <div class="wave-layer header-wave back"></div>
+          <div class="wave-layer header-wave mid"></div>
+          <div class="wave-layer header-wave front"></div>
         </div>
+    </header>
         
         <!-- ヘッダーの波のアニメーション -->
         <div class="waves-container" aria-hidden="true">
