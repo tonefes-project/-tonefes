@@ -1,619 +1,621 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>利根フェス 2025 | 羽生市初開催！水と緑の体験型フェスティバル</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Poppins:wght@600;700;800&family=Yusei+Magic&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      background-color: #F7F9FB;
-      overflow-x: hidden;
-    }
-    .font-poppins { font-family: 'Poppins', sans-serif; }
-    .font-yusei { font-family: 'Yusei Magic', sans-serif; }
-    .hero-bg {
-      background-image: url('hero-top.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-    .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-    }
-    
-    #main-header {
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-    }
-    #main-header.scrolled {
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-    }
-    #main-header #header-logo {
-      transition: height 0.3s ease;
-    }
-    #main-header.scrolled #header-logo {
-      height: 2.5rem; /* 40px */
-    }
-    #scroll-progress-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 4px;
-      background: linear-gradient(to right, #22d3ee, #06b6d4);
-      width: 0%;
-      z-index: 60;
-      transition: width 0.1s ease-out;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利根フェス 2025 | 羽生市初開催！水と緑の体験型フェスティバル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Poppins:wght@600;700;800&family=Yusei+Magic&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #F7F9FB;
+            overflow-x: hidden;
+        }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-yusei { font-family: 'Yusei Magic', sans-serif; }
+        .hero-bg {
+            background-image: url('hero-top.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+        
+        #main-header {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+        }
+        #main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        #main-header #header-logo {
+            transition: height 0.3s ease;
+        }
+        #main-header.scrolled #header-logo {
+            height: 2.5rem; /* 40px */
+        }
+        #scroll-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #22d3ee, #06b6d4);
+            width: 0%;
+            z-index: 60;
+            transition: width 0.1s ease-out;
+        }
 
-    .nav-link {
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    #main-header.scrolled .nav-link {
-      color: #083344; /*濃いシアン*/
-      text-shadow: none;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      transform: scaleX(0);
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #0891b2;
-      transform-origin: bottom right;
-      transition: transform 0.3s ease-out;
-    }
-    .nav-link:hover::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-    .hamburger span {
-      transition: all 0.3s ease-in-out;
-    }
-    #main-header.scrolled .hamburger span {
-      background-color: #083344;
-    }
-    .hamburger.active span {
-       background-color: #083344;
-    }
-    .hamburger.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-    #mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    #mobile-menu.active {
-      transform: translateX(0);
-    }
-    #mobile-menu a {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    #mobile-menu.active a {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    body.menu-open {
-      overflow: hidden;
-    }
-    
-    .waves-container {
-      position:absolute; inset:auto 0 -1px 0;
-      height: 20vw;
-      max-height: 150px; 
-      min-height: 80px; 
-      z-index:5; 
-      overflow:hidden;
-    }
-    .wave-layer { 
-      position:absolute; left:0; bottom:0; width:200%; height:100%; 
-      background-repeat: repeat-x; background-size: 50% 100%; will-change:transform;
-    }
-    .header-wave.back { 
-      animation:wave-slide 56s linear infinite;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
-      opacity: 0.5;
-    }
-    .header-wave.mid  { 
-      animation:wave-slide 36s linear infinite reverse;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
-      opacity: 0.7;
-    }
-    .header-wave.front { 
-      animation:wave-slide 24s linear infinite;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
-    }
-    @keyframes wave-slide { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-    @media (prefers-reduced-motion: reduce){ .wave-layer { animation:none } }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        #main-header.scrolled .nav-link {
+            color: #083344; /*濃いシアン*/
+            text-shadow: none;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0891b2;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .hamburger span {
+            transition: all 0.3s ease-in-out;
+        }
+        #main-header.scrolled .hamburger span {
+            background-color: #083344;
+        }
+        .hamburger.active span {
+             background-color: #083344;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+        #mobile-menu a {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        #mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.menu-open {
+            overflow: hidden;
+        }
+        
+        .waves-container {
+            position:absolute; inset:auto 0 -1px 0;
+            height: 20vw;
+            max-height: 150px; 
+            min-height: 80px; 
+            z-index:5; 
+            overflow:hidden;
+        }
+        .wave-layer { 
+            position:absolute; left:0; bottom:0; width:200%; height:100%; 
+            background-repeat: repeat-x; background-size: 50% 100%; will-change:transform;
+        }
+        .header-wave.back  { 
+            animation:wave-slide 56s linear infinite;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+            opacity: 0.5;
+        }
+        .header-wave.mid   { 
+            animation:wave-slide 36s linear infinite reverse;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+            opacity: 0.7;
+        }
+        .header-wave.front { 
+            animation:wave-slide 24s linear infinite;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23cffafe" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"></path></svg>');
+        }
+        @keyframes wave-slide { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+        @media (prefers-reduced-motion: reduce){ .wave-layer { animation:none } }
 
-    #bubble-wrapper {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 100; 
-    }
-    .bubble {
-      position: absolute; animation-iteration-count: infinite, infinite;
-      animation-timing-function: linear, ease-in-out; animation-direction: normal, alternate;
-      bottom: -150px;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.8; }
-      50% { transform: translateX(20px) scale(1.05); }
-      100% { transform: translateY(-120vh) translateX(-20px) scale(0.9); opacity: 0; }
-    }
-    @keyframes morph {
-      0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-      50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-      100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-    }
+        #bubble-wrapper {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 100; 
+        }
+        .bubble {
+            position: absolute; animation-iteration-count: infinite, infinite;
+            animation-timing-function: linear, ease-in-out; animation-direction: normal, alternate;
+            bottom: -150px;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.8; }
+            50% { transform: translateX(20px) scale(1.05); }
+            100% { transform: translateY(-120vh) translateX(-20px) scale(0.9); opacity: 0; }
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
 
-    #scrollTopBtn {
-      position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px;
-      background-color: rgba(0, 180, 255, 0.7); backdrop-filter: blur(5px);
-      border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      display: flex; align-items: center; justify-content: center; cursor: pointer;
-      z-index: 110; opacity: 0; transform: scale(0) translateY(50px);
-      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      border: 2px solid rgba(255,255,255,0.5);
-    }
-    #scrollTopBtn.visible { opacity: 1; transform: scale(1) translateY(0); }
-    #scrollTopBtn:hover { background-color: rgba(0, 190, 255, 0.9); transform: scale(1.1); }
-    #scrollTopBtn svg { width: 24px; height: 24px; color: white; transition: transform 0.3s ease; }
-    #scrollTopBtn:hover svg { transform: translateY(-2px); }
+        #scrollTopBtn {
+            position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px;
+            background-color: rgba(0, 180, 255, 0.7); backdrop-filter: blur(5px);
+            border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            z-index: 110; opacity: 0; transform: scale(0) translateY(50px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        #scrollTopBtn.visible { opacity: 1; transform: scale(1) translateY(0); }
+        #scrollTopBtn:hover { background-color: rgba(0, 190, 255, 0.9); transform: scale(1.1); }
+        #scrollTopBtn svg { width: 24px; height: 24px; color: white; transition: transform 0.3s ease; }
+        #scrollTopBtn:hover svg { transform: translateY(-2px); }
 
-    .card-hover { 
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .card-hover:hover { 
-      transform: translateY(-15px) rotate(1deg);
-      box-shadow: 0 25px 30px -10px rgba(0, 182, 212, 0.2), 0 10px 15px -8px rgba(0, 0, 0, 0.1);
-    }
-    
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in-up { animation: fadeIn 1s ease-out forwards; }
-    .scroll-animation { opacity: 0; transition: opacity 1s ease-out, transform 1s ease-out; transform: translateY(30px); }
-    .scroll-animation.visible { opacity: 1; transform: translateY(0); }
+        .card-hover { 
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        @media (min-width: 768px) {
+            .card-hover:hover { 
+                transform: translateY(-15px) rotate(1deg);
+                box-shadow: 0 25px 30px -10px rgba(0, 182, 212, 0.2), 0 10px 15px -8px rgba(0, 0, 0, 0.1);
+            }
+        }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeIn 1s ease-out forwards; }
+        .scroll-animation { opacity: 0; transition: opacity 1s ease-out, transform 1s ease-out; transform: translateY(30px); }
+        .scroll-animation.visible { opacity: 1; transform: translateY(0); }
 
-    .map-tab {
-      transition: all 0.3s ease;
-    }
-    .map-tab.active {
-      background-color: #06b6d4;
-      color: white;
-      box-shadow: 0 4px 14px 0 rgba(6, 182, 212, 0.39);
-    }
-    .map-content {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-    .map-content.active {
-      display: block;
-    }
-    .strong-text-shadow {
-      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    }
-  </style>
+        .map-tab {
+            transition: all 0.3s ease;
+        }
+        .map-tab.active {
+            background-color: #06b6d4;
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(6, 182, 212, 0.39);
+        }
+        .map-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .map-content.active {
+            display: block;
+        }
+        .strong-text-shadow {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <div id="bubble-wrapper"></div>
+    <div id="bubble-wrapper"></div>
 
-  <div class="relative h-[70vh] md:h-screen min-h-[500px] hero-bg">
-    <header id="main-header" class="fixed top-0 left-0 w-full z-40 py-4">
-      <div class="container mx-auto px-6 flex justify-between items-center">
-        <a href="#">
-          <img id="header-logo" src="tonefes_rogo_RGB.png" alt="TONE FES ロゴ" class="h-10">
-        </a>
-        <nav class="hidden md:flex items-center space-x-8">
-          <a href="#concept" class="nav-link text-white font-bold text-shadow">コンセプト</a>
-          <a href="#attractions" class="nav-link text-white font-bold text-shadow">4つの楽しみ方</a>
-          <a href="#rubber-boat" class="nav-link text-white font-bold text-shadow">特別イベント</a>
-          <a href="#details" class="nav-link text-white font-bold text-shadow">詳細・アクセス</a>
-        </nav>
-        <button id="hamburger-btn" class="hamburger md:hidden w-8 h-6 flex flex-col justify-between z-50">
-          <span class="block w-full h-0.5 bg-white rounded"></span>
-          <span class="block w-full h-0.5 bg-white rounded"></span>
-          <span class="block w-full h-0.5 bg-white rounded"></span>
-        </button>
-      </div>
-      <div id="scroll-progress-bar"></div>
-    </header>
-
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-xs bg-white/90 backdrop-blur-lg shadow-2xl z-40 flex flex-col items-center justify-center">
-      <nav class="flex flex-col space-y-8 text-center">
-        <a href="#concept" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.1s;">コンセプト</a>
-        <a href="#attractions" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.2s;">4つの楽しみ方</a>
-        <a href="#rubber-boat" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.3s;">特別イベント</a>
-        <a href="#details" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.4s;">詳細・アクセス</a>
-      </nav>
-    </div>
-
-    <div class="absolute inset-0 flex items-center justify-center text-white">
-      <div class="absolute inset-0 bg-black/30"></div>
-      <div class="relative z-10 text-center p-4 flex flex-col items-center">
-        <div class="fade-in-up">
-          <img src="logo_hero.png" alt="TONE FES ロゴ" class="w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
-        </div>
-      </div>
-    </div>
-    
-    <div class="waves-container" aria-hidden="true">
-     <div class="wave-layer header-wave back"></div>
-     <div class="wave-layer header-wave mid"></div>
-     <div class="wave-layer header-wave front"></div>
-    </div>
-  </div>
-
-  <section id="event-info" class="bg-cyan-100 py-16 md:py-24">
-    <div class="container mx-auto px-6">
-      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 border-t-4 border-cyan-400 scroll-animation">
-        <div class="flex flex-col md:flex-row items-center justify-around text-center space-y-8 md:space-y-0 md:space-x-8">
-          <div class="flex-1 flex flex-col items-center">
-            <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
-              <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0h18M12 12.75h.008v.008H12v-.008Z" /></svg>
+    <div class="relative h-[70vh] md:h-screen min-h-[500px] hero-bg">
+        <header id="main-header" class="fixed top-0 left-0 w-full z-40 py-4">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <a href="#">
+                    <img id="header-logo" src="tonefes_rogo_RGB.png" alt="TONE FES ロゴ" class="h-10">
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#concept" class="nav-link text-white font-bold text-shadow">コンセプト</a>
+                    <a href="#attractions" class="nav-link text-white font-bold text-shadow">4つの楽しみ方</a>
+                    <a href="#rubber-boat" class="nav-link text-white font-bold text-shadow">特別イベント</a>
+                    <a href="#details" class="nav-link text-white font-bold text-shadow">詳細・アクセス</a>
+                </nav>
+                <button id="hamburger-btn" class="hamburger md:hidden w-8 h-6 flex flex-col justify-between z-50">
+                    <span class="block w-full h-0.5 bg-white rounded"></span>
+                    <span class="block w-full h-0.5 bg-white rounded"></span>
+                    <span class="block w-full h-0.5 bg-white rounded"></span>
+                </button>
             </div>
-            <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">DATE</h3>
-            <p class="font-poppins font-black text-3xl md:text-4xl text-gray-800 mt-2">2025.9.27</p>
-            <p class="font-bold text-xl text-cyan-600">SATURDAY</p>
-          </div>
-          <div class="w-full h-px md:w-px md:h-24 bg-gray-200"></div>
-          <div class="flex-1 flex flex-col items-center">
-            <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
-              <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-            </div>
-            <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">TIME</h3>
-            <p class="font-poppins font-black text-3xl md:text-4xl text-gray-800 mt-2">10:00<span class="text-2xl mx-1">-</span>15:00</p>
-            <p class="font-bold text-xl text-cyan-600">OPEN - CLOSE</p>
-          </div>
-          <div class="w-full h-px md:w-px md:h-24 bg-gray-200"></div>
-          <div class="flex-1 flex flex-col items-center">
-            <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
-              <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
-            </div>
-            <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">LOCATION</h3>
-            <p class="font-bold text-xl text-gray-800 mt-2 leading-tight">利根川右岸<br>昭和橋上流の砂州</p>
-            <p class="font-bold text-lg text-cyan-600 mt-1">羽生市</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div id="scroll-progress-bar"></div>
+        </header>
 
-  <main class="relative">
-    <section id="concept" class="bg-[#F7F9FB] pt-20 md:pt-28 pb-10 md:pb-20">
-      <div class="container mx-auto px-6 text-center max-w-4xl">
-        <div class="scroll-animation">
-          <h2 class="section-title text-4xl md:text-5xl text-cyan-600">CONCEPT</h2>
-          <p class="mt-2 text-lg font-bold text-gray-700">都心から一番近い"大自然の遊び場"</p>
-          <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
-          <p class="mt-8 text-center leading-relaxed">
-            川の水のひんやりとした感触。<br>
-            足元の砂や石のゴツゴツとした感触。<br>
-            魚や鳥たちの息吹を感じながら、<br>
-            思いっきり遊んで、学んで、発見する。<br>
-            『利根フェス』は、子どもたちの最高の笑顔と、<br>
-            大人たちの「あの頃」のワクワクが詰まった、<br>
-            みんなの"実践川遊び"のステージ。<br>
-            さあ、忘れられない夏の思い出を、<br>
-            ここ羽生で作りましょう。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="attractions" class="bg-white py-20 md:py-32">
-      <div class="container mx-auto px-6">
-        <div class="text-center scroll-animation">
-          <h2 class="section-title text-4xl md:text-5xl text-cyan-600">ATTRACTIONS</h2>
-          <p class="mt-2 text-lg font-bold text-gray-700">4つの楽しみ方</p>
-          <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-xs bg-white/90 backdrop-blur-lg shadow-2xl z-40 flex flex-col items-center justify-center">
+            <nav class="flex flex-col space-y-8 text-center">
+                <a href="#concept" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.1s;">コンセプト</a>
+                <a href="#attractions" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.2s;">4つの楽しみ方</a>
+                <a href="#rubber-boat" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.3s;">特別イベント</a>
+                <a href="#details" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.4s;">詳細・アクセス</a>
+            </nav>
         </div>
 
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation">
-            <div class="p-6 bg-cyan-500 text-white text-center">
-              <h3 class="font-poppins font-bold text-2xl">ACTIVE ZONE</h3>
-              <p class="font-semibold">思いっきり遊ぶ！</p>
-            </div>
-            <img src="activezone.jpg" alt="アクティブゾーンのイメージ画像" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <ul class="space-y-3 text-gray-600">
-                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>ゴムボート川下り体験</li>
-                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>水上アスレチック</li>
-                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>水鉄砲・水浴びゾーン</li>
-              </ul>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.1s;">
-             <div class="p-6 bg-emerald-500 text-white text-center">
-              <h3 class="font-poppins font-bold text-2xl">RELAX & CHILL</h3>
-              <p class="font-semibold">川のほとりで癒される</p>
-            </div>
-            <img src="sauna.jpg" alt="リラックスゾーンのテントサウナ" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <ul class="space-y-3 text-gray-600">
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>テントサウナ</li>
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>石ころアート</li>
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>水切り</li>
-              </ul>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.2s;">
-             <div class="p-6 bg-amber-500 text-white text-center">
-              <h3 class="font-poppins font-bold text-2xl">KIDS & FAMILY</h3>
-              <p class="font-semibold">親子で学ぶ・知る！</p>
-            </div>
-            <img src="kids.jpg" alt="キッズ＆ファミリーゾーンのイメージ画像" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <ul class="space-y-3 text-gray-600">
-                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>河川学習</li>
-                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>はたらく乗り物大集合！</li>
-                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>利根川の歴史展示</li>
-              </ul>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.3s;">
-            <div class="p-6 bg-rose-500 text-white text-center">
-              <h3 class="font-poppins font-bold text-2xl">GOURMET AREA</h3>
-              <p class="font-semibold">お腹も大満足！</p>
-            </div>
-            <img src="kitchencar.jpg" alt="グルメエリアのキッチンカー" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <p class="text-gray-600">
-                青空の下でめしあがれ！羽生グルメがキッチンカーで大集合！たくさん遊んだあとは、美味しいごはんでエネルギーチャージ！
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="rubber-boat" class="bg-[#F7F9FB] py-20 md:py-32">
-      <div class="container mx-auto px-6">
-        <div class="text-center scroll-animation">
-          <h2 class="section-title text-4xl md:text-5xl text-cyan-600">SPECIAL EVENT</h2>
-          <p class="mt-2 text-lg font-bold text-gray-700">ゴムボートレース</p>
-          <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
-        </div>
-
-        <div class="mt-16 scroll-animation">
-          <div class="relative max-w-5xl mx-auto text-center py-16 px-8 bg-cyan-500 rounded-2xl shadow-xl overflow-hidden card-hover">
-            <div class="absolute -top-10 -left-10 w-40 h-40 bg-cyan-400 rounded-full opacity-50"></div>
-            <div class="absolute -bottom-12 -right-8 w-48 h-48 bg-cyan-400 rounded-full opacity-50"></div>
-            <div class="relative text-white">
-              <h3 class="font-black text-2xl md:text-3xl text-shadow">仲間と力を合わせ、雄大な利根川の自然を体感しよう！</h3>
-              <p class="mt-4 text-cyan-100 font-semibold">10人乗りの大きなゴムボートに乗り込み、みんなでパドルを漕いで利根川の壮大な流れを体感する特別なイベントです。忘れられない夏の思い出を作ろう！</p>
-              <a href="rubber-boat-detail.html" target="_blank" class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-5 px-12 rounded-full shadow-lg transition-transform transform hover:scale-105 text-xl">
-                イベント詳細 & 参加申し込みはこちら
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="details" class="py-20 md:py-32 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center scroll-animation">
-          <h2 class="section-title text-4xl md:text-5xl text-cyan-600">DETAILS & ACCESS</h2>
-          <p class="mt-2 text-lg font-bold text-gray-700">開催概要とアクセス</p>
-          <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
-        </div>
-
-        <div class="mt-16 max-w-5xl mx-auto">
-          <div class="bg-white p-8 rounded-xl shadow-lg scroll-animation mb-8">
-            <h3 class="font-bold text-2xl text-gray-800 border-b-2 border-cyan-300 pb-2">開催概要</h3>
-            <dl class="mt-6 space-y-4">
-              <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">日時</dt><dd class="flex-1">2025年9月27日(土) 10:00-15:00 <br><span class="text-sm text-red-500">※雨天中止</span></dd></div>
-              <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">会場</dt><dd class="flex-1">利根川右岸 昭和橋上流の砂州</dd></div>
-              <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">参加費</dt><dd class="flex-1">入場無料<br><span class="text-sm text-gray-500">※一部コンテンツは有料の場合あり</span></dd></div>
-              <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">持ち物</dt><dd class="flex-1"><span class="font-semibold">必須:</span> タオル, 着替え, 帽子, 飲み物<br><span class="font-semibold">推奨:</span> 日焼け止め, ウォーターシューズ, 防水ケース</dd></div>
-            </dl>
-          </div>
-
-          <div class="bg-white rounded-xl shadow-lg scroll-animation overflow-hidden">
-            <div class="p-4">
-              <div class="flex justify-center bg-gray-100 rounded-lg p-1">
-                <button data-tab="custom-map" class="map-tab active flex-1 font-bold py-3 px-4 rounded-md">会場</button>
-                <button data-tab="gmap" class="map-tab flex-1 font-bold py-3 px-4 rounded-md">Google Map</button>
-              </div>
-            </div>
-            <div class="p-4 pt-0">
-              <div id="custom-map" class="map-content active">
-                <div class="aspect-w-16 aspect-h-9 h-96 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-                   <img src="map.jpg" alt="会場地図" class="w-full h-full object-contain">
+        <div class="absolute inset-0 flex items-center justify-center text-white">
+            <div class="absolute inset-0 bg-black/30"></div>
+            <div class="relative z-10 text-center p-4 flex flex-col items-center">
+                <div class="fade-in-up">
+                    <img src="logo_hero.png" alt="TONE FES ロゴ" class="w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
                 </div>
-              </div>
-              <div id="gmap" class="map-content">
-                <div class="aspect-w-16 aspect-h-9 h-96 rounded-lg overflow-hidden">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.0868285683387!2d139.51085609999998!3d36.1887701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f2e6abe6c28e9%3A0x28fd03495847e070!2z6YGT44Gu6aeFIOOBr-OBq-OCheOBhg!5e0!3m2!1sja!2sjp!4v1755291714755!5m2!1sja!2sjp" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="relative bg-cyan-500 text-white pt-10 pb-10 ">
-    <div class="absolute top-0 left-0 w-full overflow-hidden leading-none" style="transform: translateY(-100%);" aria-hidden="true">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[40px] md:h-[60px]">
-        <path d="M0,60 C150,120 250,0 400,60 C550,120 650,0 800,60 C950,120 1050,0 1200,60 L1200,120 L0,120 Z" class="fill-cyan-500"></path>
-      </svg>
-    </div>
-
-    <div class="relative z-10 container mx-auto px-6 text-center">
-      <h3 class="font-poppins font-bold text-2xl">TONE FES 2025</h3>
-      <div class="mt-8">
-        <p><span class="font-bold">主催:</span> 羽生利根川水辺プロジェクト実行委員会</p>
-        <p><span class="font-bold">共催:</span> ●●●●</p>
-        <p><span class="font-bold">後援:</span> 羽生市</p>
-      </div>
-      <div class="mt-6">
-        <p class="font-bold">お問い合わせ</p>
-        <p>羽生利根川水辺プロジェクト実行委員会事務局</p>
-        <p>TEL: 048-560-3119 / Email: kanko@city.hanyu.lg.jp</p>
-      </div>
-      <div class="mt-10 border-t border-cyan-400 pt-6">
-        <p class="text-sm text-cyan-100">&copy; 2025 TONE FES Executive Committee.</p>
-      </div>
-    </div>
-  </footer>
-
-
-  <button id="scrollTopBtn" title="ページトップへ戻る">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-    </svg>
-  </button>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.getElementById('main-header');
-      const hamburgerBtn = document.getElementById('hamburger-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (hamburgerBtn && mobileMenu) {
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-        const closeMenu = () => {
-          hamburgerBtn.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          document.body.classList.remove('menu-open');
-        };
-
-        const toggleMenu = () => {
-          hamburgerBtn.classList.toggle('active');
-          mobileMenu.classList.toggle('active');
-          document.body.classList.toggle('menu-open');
-        };
         
-        hamburgerBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          toggleMenu();
-        });
+        <div class="waves-container" aria-hidden="true">
+          <div class="wave-layer header-wave back"></div>
+          <div class="wave-layer header-wave mid"></div>
+          <div class="wave-layer header-wave front"></div>
+        </div>
+    </div>
 
-        mobileMenuLinks.forEach(link => {
-          link.addEventListener('click', closeMenu);
-        });
+    <section id="event-info" class="bg-cyan-100 py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 border-t-4 border-cyan-400 scroll-animation">
+                <div class="flex flex-col md:flex-row items-center justify-around text-center space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0h18M12 12.75h.008v.008H12v-.008Z" /></svg>
+                        </div>
+                        <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">DATE</h3>
+                        <p class="font-poppins font-black text-3xl md:text-4xl text-gray-800 mt-2">2025.9.27</p>
+                        <p class="font-bold text-xl text-cyan-600">SATURDAY</p>
+                    </div>
+                    <div class="w-full h-px md:w-px md:h-24 bg-gray-200"></div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                        </div>
+                        <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">TIME</h3>
+                        <p class="font-poppins font-black text-3xl md:text-4xl text-gray-800 mt-2">10:00<span class="text-2xl mx-1">-</span>15:00</p>
+                        <p class="font-bold text-xl text-cyan-600">OPEN - CLOSE</p>
+                    </div>
+                    <div class="w-full h-px md:w-px md:h-24 bg-gray-200"></div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="mx-auto mb-4 bg-cyan-100 rounded-full w-16 h-16 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+                        </div>
+                        <h3 class="font-poppins font-bold text-gray-400 tracking-widest text-sm">LOCATION</h3>
+                        <p class="font-bold text-xl text-gray-800 mt-2 leading-tight">利根川右岸<br>昭和橋上流の砂州</p>
+                        <p class="font-bold text-lg text-cyan-600 mt-1">羽生市</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        document.addEventListener('click', (e) => {
-          const isMenuOpen = mobileMenu.classList.contains('active');
-          const isClickInsideMenu = mobileMenu.contains(e.target);
-          
-          if (isMenuOpen && !isClickInsideMenu) {
-            closeMenu();
-          }
-        });
-      }
+    <main class="relative">
+        <section id="concept" class="bg-[#F7F9FB] pt-20 md:pt-28 pb-10 md:pb-20">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <div class="scroll-animation">
+                    <h2 class="section-title text-4xl md:text-5xl text-cyan-600">CONCEPT</h2>
+                    <p class="mt-2 text-lg font-bold text-gray-700">都心から一番近い"大自然の遊び場"</p>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+                    <p class="mt-8 text-center leading-relaxed">
+                        川の水のひんやりとした感触。<br>
+                        足元の砂や石のゴツゴツとした感触。<br>
+                        魚や鳥たちの息吹を感じながら、<br>
+                        思いっきり遊んで、学んで、発見する。<br>
+                        『利根フェス』は、子どもたちの最高の笑顔と、<br>
+                        大人たちの「あの頃」のワクワクが詰まった、<br>
+                        みんなの"実践川遊び"のステージ。<br>
+                        さあ、忘れられない夏の思い出を、<br>
+                        ここ羽生で作りましょう。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="attractions" class="bg-white py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center scroll-animation">
+                    <h2 class="section-title text-4xl md:text-5xl text-cyan-600">ATTRACTIONS</h2>
+                    <p class="mt-2 text-lg font-bold text-gray-700">4つの楽しみ方</p>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation">
+                        <div class="p-6 bg-cyan-500 text-white text-center">
+                            <h3 class="font-poppins font-bold text-2xl">ACTIVE ZONE</h3>
+                            <p class="font-semibold">思いっきり遊ぶ！</p>
+                        </div>
+                        <img src="activezone.jpg" alt="アクティブゾーンのイメージ画像" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>ゴムボート川下り体験</li>
+                                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>水上アスレチック</li>
+                                <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>水鉄砲・水浴びゾーン</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.1s;">
+                         <div class="p-6 bg-emerald-500 text-white text-center">
+                            <h3 class="font-poppins font-bold text-2xl">RELAX & CHILL</h3>
+                            <p class="font-semibold">川のほとりで癒される</p>
+                        </div>
+                        <img src="sauna.jpg" alt="リラックスゾーンのテントサウナ" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>テントサウナ</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>石ころアート</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>水切り</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.2s;">
+                         <div class="p-6 bg-amber-500 text-white text-center">
+                            <h3 class="font-poppins font-bold text-2xl">KIDS & FAMILY</h3>
+                            <p class="font-semibold">親子で学ぶ・知る！</p>
+                        </div>
+                        <img src="kids.jpg" alt="キッズ＆ファミリーゾーンのイメージ画像" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>河川学習</li>
+                                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>はたらく乗り物大集合！</li>
+                                <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>利根川の歴史展示</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover scroll-animation" style="transition-delay: 0.3s;">
+                        <div class="p-6 bg-rose-500 text-white text-center">
+                            <h3 class="font-poppins font-bold text-2xl">GOURMET AREA</h3>
+                            <p class="font-semibold">お腹も大満足！</p>
+                        </div>
+                        <img src="kitchencar.jpg" alt="グルメエリアのキッチンカー" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-gray-600">
+                                青空の下でめしあがれ！羽生グルメがキッチンカーで大集合！たくさん遊んだあとは、美味しいごはんでエネルギーチャージ！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rubber-boat" class="bg-[#F7F9FB] py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center scroll-animation">
+                    <h2 class="section-title text-4xl md:text-5xl text-cyan-600">SPECIAL EVENT</h2>
+                    <p class="mt-2 text-lg font-bold text-gray-700">ゴムボートレース</p>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+                </div>
+
+                <div class="mt-16 scroll-animation">
+                    <div class="relative max-w-5xl mx-auto text-center py-16 px-8 bg-cyan-500 rounded-2xl shadow-xl overflow-hidden card-hover">
+                        <div class="absolute -top-10 -left-10 w-40 h-40 bg-cyan-400 rounded-full opacity-50"></div>
+                        <div class="absolute -bottom-12 -right-8 w-48 h-48 bg-cyan-400 rounded-full opacity-50"></div>
+                        <div class="relative text-white">
+                            <h3 class="font-black text-2xl md:text-3xl text-shadow">仲間と力を合わせ、雄大な利根川の自然を体感しよう！</h3>
+                            <p class="mt-4 text-cyan-100 font-semibold">10人乗りの大きなゴムボートに乗り込み、みんなでパドルを漕いで利根川の壮大な流れを体感する特別なイベントです。忘れられない夏の思い出を作ろう！</p>
+                            <a href="rubber-boat-detail.html" target="_blank" class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-5 px-12 rounded-full shadow-lg transition-transform transform hover:scale-105 text-xl">
+                                イベント詳細 & 参加申し込みはこちら
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="details" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center scroll-animation">
+                    <h2 class="section-title text-4xl md:text-5xl text-cyan-600">DETAILS & ACCESS</h2>
+                    <p class="mt-2 text-lg font-bold text-gray-700">開催概要とアクセス</p>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+                </div>
+
+                <div class="mt-16 max-w-5xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg scroll-animation mb-8">
+                        <h3 class="font-bold text-2xl text-gray-800 border-b-2 border-cyan-300 pb-2">開催概要</h3>
+                        <dl class="mt-6 space-y-4">
+                            <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">日時</dt><dd class="flex-1">2025年9月27日(土) 10:00-15:00 <br><span class="text-sm text-red-500">※雨天中止</span></dd></div>
+                            <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">会場</dt><dd class="flex-1">利根川右岸 昭和橋上流の砂州</dd></div>
+                            <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">参加費</dt><dd class="flex-1">入場無料<br><span class="text-sm text-gray-500">※一部コンテンツは有料の場合あり</span></dd></div>
+                            <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">持ち物</dt><dd class="flex-1"><span class="font-semibold">必須:</span> タオル, 着替え, 帽子, 飲み物<br><span class="font-semibold">推奨:</span> 日焼け止め, ウォーターシューズ, 防水ケース</dd></div>
+                        </dl>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg scroll-animation overflow-hidden">
+                        <div class="p-4">
+                            <div class="flex justify-center bg-gray-100 rounded-lg p-1">
+                                <button data-tab="custom-map" class="map-tab active flex-1 font-bold py-3 px-4 rounded-md">会場</button>
+                                <button data-tab="gmap" class="map-tab flex-1 font-bold py-3 px-4 rounded-md">Google Map</button>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <div id="custom-map" class="map-content active">
+                                <div class="aspect-w-16 aspect-h-9 h-96 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+                                     <img src="map.jpg" alt="会場地図" class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div id="gmap" class="map-content">
+                                <div class="aspect-w-16 aspect-h-9 h-96 rounded-lg overflow-hidden">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.0868285683387!2d139.51085609999998!3d36.1887701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f2e6abe6c28e9%3A0x28fd03495847e070!2z6YGT44Gu6aeFIOOBr-OBq-OCheOBhg!5e0!3m2!1sja!2sjp!4v1755291714755!5m2!1sja!2sjp" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative bg-cyan-500 text-white pt-10 pb-10 mt-20">
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none" style="transform: translateY(-100%);" aria-hidden="true">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[40px] md:h-[60px]">
+                <path d="M0,60 C150,120 250,0 400,60 C550,120 650,0 800,60 C950,120 1050,0 1200,60 L1200,120 L0,120 Z" class="fill-cyan-500"></path>
+            </svg>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <h3 class="font-poppins font-bold text-2xl">TONE FES 2025</h3>
+            <div class="mt-8">
+                <p><span class="font-bold">主催:</span> 羽生利根川水辺プロジェクト実行委員会</p>
+                <p><span class="font-bold">共催:</span> ●●●●</p>
+                <p><span class="font-bold">後援:</span> 羽生市</p>
+            </div>
+            <div class="mt-6">
+                <p class="font-bold">お問い合わせ</p>
+                <p>羽生利根川水辺プロジェクト実行委員会事務局</p>
+                <p>TEL: 048-560-3119 / Email: kanko@city.hanyu.lg.jp</p>
+            </div>
+            <div class="mt-10 border-t border-cyan-400 pt-6">
+                <p class="text-sm text-cyan-100">&copy; 2025 TONE FES Executive Committee.</p>
+            </div>
+        </div>
+    </footer>
 
 
-      if (header) {
-        const scrollProgressBar = document.getElementById('scroll-progress-bar');
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-          } else {
-            header.classList.remove('scrolled');
-          }
-          if(scrollProgressBar){
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollProgress = (window.scrollY / totalHeight) * 100;
-            scrollProgressBar.style.width = `${scrollProgress}%`;
-          }
-        });
-      }
-      
-      const mapTabs = document.querySelectorAll('.map-tab');
-      const mapContents = document.querySelectorAll('.map-content');
-      mapTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          mapTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
+    <button id="scrollTopBtn" title="ページトップへ戻る">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
 
-          const target = tab.getAttribute('data-tab');
-          mapContents.forEach(content => {
-            if (content.id === target) {
-              content.classList.add('active');
-            } else {
-              content.classList.remove('active');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (hamburgerBtn && mobileMenu) {
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+                const closeMenu = () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                };
+
+                const toggleMenu = () => {
+                    hamburgerBtn.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                };
+                
+                hamburgerBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                document.addEventListener('click', (e) => {
+                    const isMenuOpen = mobileMenu.classList.contains('active');
+                    const isClickInsideMenu = mobileMenu.contains(e.target);
+                    
+                    if (isMenuOpen && !isClickInsideMenu) {
+                        closeMenu();
+                    }
+                });
             }
-          });
-        });
-      });
 
-      const animatedElements = document.querySelectorAll('.scroll-animation');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      animatedElements.forEach(el => observer.observe(el));
 
-      const bubbleWrapper = document.getElementById('bubble-wrapper');
-      if (bubbleWrapper) {
-        const bubbleColors = ['rgba(0, 191, 255, 0.6)', 'rgba(173, 216, 230, 0.6)', 'rgba(255, 255, 255, 0.6)'];
-        const numberOfBubbles = 40;
-        for (let i = 0; i < numberOfBubbles; i++) {
-          const bubble = document.createElement('div');
-          bubble.classList.add('bubble');
-          const size = Math.random() * 30 + 10; 
-          bubble.style.width = `${size}px`;
-          bubble.style.height = `${size}px`;
-          bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
-          if (Math.random() > 0.5) {
-            bubble.style.left = `${Math.random() * 20}%`;
-          } else {
-            bubble.style.right = `${Math.random() * 20}%`;
-          }
-          const floatDuration = Math.random() * 10 + 15;
-          const morphDuration = Math.random() * 5 + 5;
-          bubble.style.animationName = 'floatUp, morph';
-          bubble.style.animationDuration = `${floatDuration}s, ${morphDuration}s`;
-          const delay = Math.random() * -floatDuration;
-          bubble.style.animationDelay = `${delay}s, ${delay}s`;
-          bubbleWrapper.appendChild(bubble);
-        }
-      }
+            if (header) {
+                const scrollProgressBar = document.getElementById('scroll-progress-bar');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                    if(scrollProgressBar){
+                        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        const scrollProgress = (window.scrollY / totalHeight) * 100;
+                        scrollProgressBar.style.width = `${scrollProgress}%`;
+                    }
+                });
+            }
+            
+            const mapTabs = document.querySelectorAll('.map-tab');
+            const mapContents = document.querySelectorAll('.map-content');
+            mapTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    mapTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
 
-      const scrollTopBtn = document.getElementById('scrollTopBtn');
-      if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 300) {
-            scrollTopBtn.classList.add('visible');
-          } else {
-            scrollTopBtn.classList.remove('visible');
-          }
+                    const target = tab.getAttribute('data-tab');
+                    mapContents.forEach(content => {
+                        if (content.id === target) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            const animatedElements = document.querySelectorAll('.scroll-animation');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            const bubbleWrapper = document.getElementById('bubble-wrapper');
+            if (bubbleWrapper) {
+                const numberOfBubbles = window.innerWidth < 768 ? 20 : 40; // スマートフォンでは泡の数を減らす
+                const bubbleColors = ['rgba(0, 191, 255, 0.6)', 'rgba(173, 216, 230, 0.6)', 'rgba(255, 255, 255, 0.6)'];
+                for (let i = 0; i < numberOfBubbles; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    const size = Math.random() * 30 + 10; 
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+                    if (Math.random() > 0.5) {
+                        bubble.style.left = `${Math.random() * 20}%`;
+                    } else {
+                        bubble.style.right = `${Math.random() * 20}%`;
+                    }
+                    const floatDuration = Math.random() * 10 + 15;
+                    const morphDuration = Math.random() * 5 + 5;
+                    bubble.style.animationName = 'floatUp, morph';
+                    bubble.style.animationDuration = `${floatDuration}s, ${morphDuration}s`;
+                    const delay = Math.random() * -floatDuration;
+                    bubble.style.animationDelay = `${delay}s, ${delay}s`;
+                    bubbleWrapper.appendChild(bubble);
+                }
+            }
+
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollTopBtn.classList.add('visible');
+                    } else {
+                        scrollTopBtn.classList.remove('visible');
+                    }
+                });
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
         });
-        scrollTopBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
