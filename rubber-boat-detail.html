@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゴムボートレース | 利根フェス 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #F7F9FB;
+            overflow-x: hidden;
+        }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+        .text-shadow { text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        
+        /* ★★★ ここから修正 ★★★ */
+        #main-header {
+            transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        #main-header.scrolled {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        #header-logo {
+            transition: height 0.3s ease-in-out;
+        }
+        #main-header.scrolled #header-logo {
+            height: 2.5rem; /* 40px */
+        }
+        #scroll-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #22d3ee, #06b6d4);
+            width: 0%;
+            z-index: 60;
+            transition: width 0.1s ease-out;
+        }
+        .header-btn .btn-icon {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .header-btn:hover .btn-icon {
+            transform: translateX(-4px);
+        }
+        /* ★★★ ここまで修正 ★★★ */
+
+        .main-visual {
+            background-image: url('boat_race_hero.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wave-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        .wave-divider .shape-fill {
+            fill: #F7F9FB;
+        }
+
+        .rule-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        .rule-list .icon {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.75rem;
+            margin-top: 0.125rem;
+        }
+
+        #bubble-wrapper {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 100;
+        }
+        .bubble {
+            position: absolute;
+            animation-name: floatUp, morph;
+            animation-iteration-count: infinite, infinite;
+            animation-timing-function: linear, ease-in-out;
+            animation-direction: normal, alternate;
+            bottom: -150px;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 0.8; }
+            100% { transform: translateY(-120vh); opacity: 0; }
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(40px);
+        }
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #scrollTopBtn {
+            position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px;
+            background-color: rgba(0, 180, 255, 0.7); backdrop-filter: blur(5px);
+            border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            z-index: 110; opacity: 0; transform: scale(0) translateY(50px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        #scrollTopBtn.visible { opacity: 1; transform: scale(1) translateY(0); }
+        #scrollTopBtn:hover { background-color: rgba(0, 190, 255, 0.9); transform: scale(1.1); }
+        #scrollTopBtn svg { width: 24px; height: 24px; color: white; transition: transform 0.3s ease; }
+        #scrollTopBtn:hover svg { transform: translateY(-2px); }
+
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div id="bubble-wrapper"></div>
+
+    <!-- ★★★ ここから修正 ★★★ -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="block">
+                <img id="header-logo" src="tonefes_rogo_RGB.png" alt="利根フェス ロゴ" class="h-12">
+            </a>
+            <a href="index.html" class="header-btn bg-cyan-500 text-white font-bold py-2 pl-5 pr-4 rounded-full hover:bg-cyan-600 transition-all transform hover:scale-105 shadow-md hover:shadow-lg flex items-center">
+                <span>フェスTOPへ</span>
+                <svg class="btn-icon w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+            </a>
+        </div>
+        <div id="scroll-progress-bar"></div>
+    </header>
+
+    <section class="relative main-visual h-[60vh] pt-24">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative text-center p-4 h-full flex flex-col justify-center items-center">
+            <h2 class="font-poppins text-4xl md:text-6xl font-extrabold text-shadow text-white">RIVER BOAT RACE</h2>
+            <p class="mt-4 text-xl md:text-2xl font-bold text-shadow text-white">仲間と勝利を掴め！<br class="md:hidden">利根川最速決定戦！</p>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- ★★★ ここまで修正 ★★★ -->
+
+    <main class="container mx-auto px-6 py-16 md:py-24">
+        
+        <section id="overview" class="max-w-4xl mx-auto text-center scroll-animation">
+            <h2 class="section-title text-3xl md:text-4xl text-cyan-600">ABOUT THIS RACE</h2>
+            <p class="mt-2 text-lg font-bold text-gray-700">イベント概要</p>
+            <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+            <p class="mt-8 text-lg leading-relaxed">
+                仲間と力を合わせてゴールを目指す、白熱のタイムレース！<br>
+                往復約200mの特設コースで、利根川最速の称号をかけた熱い戦いが繰り広げられます。<br><br>
+                専門ガイドが同乗するので、初めてでも大丈夫。<br>
+                必要な道具はすべて無料レンタル。夏の最後に、最高の思い出を作ろう！
+            </p>
+        </section>
+
+        <section id="info" class="mt-20 md:mt-24 scroll-animation">
+            <div class="text-center">
+                <h2 class="section-title text-3xl md:text-4xl text-cyan-600">DATE & PLACE</h2>
+                <p class="mt-2 text-lg font-bold text-gray-700">日時 & 集合場所</p>
+                <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+            </div>
+            <div class="mt-8 max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                    <div>
+                        <h3 class="font-bold text-gray-500 flex items-center mb-2"><svg class="w-6 h-6 mr-2 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0h18" /></svg>日時</h3>
+                        <p class="font-bold text-xl ml-8">令和７年９月２７日（土）</p>
+                        <p class="font-semibold text-red-600 ml-8">※荒天中止</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-500 flex items-center mb-2"><svg class="w-6 h-6 mr-2 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>集合場所</h3>
+                        <p class="font-bold text-xl ml-8">利根川右岸昭和橋上流の砂州</p>
+                    </div>
+                </div>
+                <div>
+                     <img src="venue_map.jpg" alt="集合場所の地図" class="w-full h-auto rounded-md border">
+                </div>
+            </div>
+        </section>
+
+        <section id="details" class="mt-20 md:mt-24 scroll-animation">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-poppins font-bold text-2xl text-cyan-700 border-b-4 border-cyan-200 pb-2 mb-4">ENTRY / <span class="font-m-plus">募集要項</span></h3>
+                        <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+                            <div class="flex"><p class="w-28 font-bold text-gray-500">参加費</p><p class="font-bold text-xl text-cyan-600">無料</p></div>
+                            <div class="flex"><p class="w-28 font-bold text-gray-500">集合時間</p><p class="font-bold">午前11時 (時間厳守)</p></div>
+                            <div class="flex"><p class="w-28 font-bold text-gray-500">定員</p><p class="font-bold">10チーム (最大6名/チーム)<br><span class="text-sm font-normal text-red-600">※申込多数の場合は抽選</span></p></div>
+                            <div class="flex"><p class="w-28 font-bold text-gray-500">参加対象</p>
+                                <div class="font-bold">
+                                    <p>小学生以上の健康な方</p>
+                                    <p class="text-sm font-normal text-gray-600">※小中高生は保護者の同意書必須</p>
+                                    <p class="text-sm font-normal text-gray-600">※市民以外も参加可能</p>
+                                    <a href="path/to/your/document.docx" download class="text-sm font-bold text-cyan-600 hover:underline">※同意書はコチラ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-poppins font-bold text-2xl text-amber-700 border-b-4 border-amber-200 pb-2 mb-4">AWARDS / <span class="font-m-plus">表彰</span></h3>
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                             <ul class="rule-list font-semibold">
+                                <li><svg class="icon text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>１位～３位のチームに記念品を贈呈</li>
+                                <li><svg class="icon text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" /><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h1a2 2 0 002-2V9a2 2 0 00-2-2h-1z" /></svg>参加者全員に参加賞を贈呈</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-poppins font-bold text-2xl text-rose-700 border-b-4 border-rose-200 pb-2 mb-4">RACE RULES / <span class="font-m-plus">ルール</span></h3>
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <ul class="rule-list text-sm">
+                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>片道約100mのコースを往復するタイムレースです。</li>
+                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>ボート、パドル、ライフジャケットは無料でお貸しします。</li>
+                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>レース中は必ずライフジャケットを着用してください。脱いだ場合は失格となります。</li>
+                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>1レース2隻ずつ、午後12時頃から順次スタートします。</li>
+                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>組み合わせは事務局で決定します。</li>
+                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>当日の川の状況により、ルールが変更になる場合があります。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-poppins font-bold text-2xl text-emerald-700 border-b-4 border-emerald-200 pb-2 mb-4">WHAT TO BRING / <span class="font-m-plus">服装・持ち物</span></h3>
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <ul class="rule-list font-semibold">
+                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>濡れてもいい格好</li>
+                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>かかとのある運動靴/ウォーターシューズ (クロックス不可)</li>
+                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>濡れてもよい帽子 (自由)</li>
+                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>着替え</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <h3 class="font-poppins font-bold text-2xl text-slate-700 border-b-4 border-slate-300 pb-2 mb-4">CAUTIONS / <span class="font-m-plus">注意事項</span></h3>
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <ul class="rule-list text-sm">
+                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>レース中に川へ飛び込んだり、泳いだりしないでください。</li>
+                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>アルコール類の持ち込み、飲酒しての参加は固く禁止します。</li>
+                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>携帯・カメラ等の貴重品は持ち込まず、ご自身で管理をお願いします。</li>
+                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>必ず係員の指示に従ってください。従わない場合は失格となることがあります。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="course" class="mt-20 md:mt-24 scroll-animation">
+            <div class="text-center">
+                <h2 class="section-title text-4xl md:text-5xl text-cyan-600">COURSE MAP / <span class="font-m-plus">コース</span></h2>
+                <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+            </div>
+            <div class="mt-8 max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <p class="text-center font-bold text-lg mb-6">利根川右岸昭和橋上流の砂州から折返し地点を往復する<br>（片道約１００ｍ）</p>
+                <div>
+                    <img src="course_map.jpg" alt="コースの画像" class="w-full h-auto rounded-md border">
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="mt-20 md:mt-24 scroll-animation">
+            <div class="text-center">
+                <h2 class="section-title text-4xl md:text-5xl text-cyan-600">CONTACT</h2>
+                <p class="mt-2 text-lg font-bold text-gray-700">お問い合わせ</p>
+                <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+            </div>
+            <div class="mt-8 max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg text-center">
+                <h3 class="font-bold text-xl text-gray-800">羽生市役所観光プロモーション課</h3>
+                <p class="mt-4 text-gray-600">〒348-0058 埼玉県羽生市中央3-7-5 市民プラザ２階</p>
+                <p class="mt-2 font-semibold">TEL: <a href="tel:048-560-3119" class="text-cyan-600 hover:underline">048-560-3119</a></p>
+                <p class="mt-1 font-semibold">Email: <a href="mailto:kankou@city.hanyu.lg.jp" class="text-cyan-600 hover:underline">kankou@city.hanyu.lg.jp</a></p>
+            </div>
+        </section>
+
+        <section id="application" class="mt-20 md:mt-24 scroll-animation">
+            <div class="relative max-w-4xl mx-auto text-center py-16 px-8 bg-cyan-500 rounded-2xl shadow-xl overflow-hidden">
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-cyan-400 rounded-full opacity-50"></div>
+                <div class="absolute -bottom-12 -right-8 w-48 h-48 bg-cyan-400 rounded-full opacity-50"></div>
+                <div class="relative text-white">
+                    <h3 class="font-black text-2xl md:text-3xl text-shadow">さあ、利根川最速を目指そう！</h3>
+                    <p class="mt-4 text-cyan-100 font-semibold">定員に達し次第、受付終了となりますのでお早めに！</p>
+                    <a href="https://www.city.hanyu.lg.jp/docs/2025072300085/" target="_blank" class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-5 px-12 rounded-full shadow-lg transition-transform transform hover:scale-105 text-xl">
+                        参加申し込みフォームへ
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-20 md:mt-32 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 利根フェス実行委員会</p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" title="ページトップへ戻る">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (hamburgerBtn && mobileMenu) {
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+                const closeMenu = () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                };
+
+                const toggleMenu = () => {
+                    hamburgerBtn.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                };
+                
+                hamburgerBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                document.addEventListener('click', (e) => {
+                    const isMenuOpen = mobileMenu.classList.contains('active');
+                    const isClickInsideMenu = mobileMenu.contains(e.target);
+                    
+                    if (isMenuOpen && !isClickInsideMenu) {
+                        closeMenu();
+                    }
+                });
+            }
+
+
+            if (header) {
+                const scrollProgressBar = document.getElementById('scroll-progress-bar');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                    if(scrollProgressBar){
+                        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        const scrollProgress = (window.scrollY / totalHeight) * 100;
+                        scrollProgressBar.style.width = `${scrollProgress}%`;
+                    }
+                });
+            }
+            
+            const mapTabs = document.querySelectorAll('.map-tab');
+            const mapContents = document.querySelectorAll('.map-content');
+            mapTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    mapTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const target = tab.getAttribute('data-tab');
+                    mapContents.forEach(content => {
+                        if (content.id === target) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            const animatedElements = document.querySelectorAll('.scroll-animation');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            const bubbleWrapper = document.getElementById('bubble-wrapper');
+            if (bubbleWrapper) {
+                const bubbleColors = ['rgba(0, 191, 255, 0.6)', 'rgba(173, 216, 230, 0.6)', 'rgba(255, 255, 255, 0.6)'];
+                const numberOfBubbles = 40;
+                for (let i = 0; i < numberOfBubbles; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    const size = Math.random() * 30 + 10; 
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+                    if (Math.random() > 0.5) {
+                        bubble.style.left = `${Math.random() * 20}%`;
+                    } else {
+                        bubble.style.right = `${Math.random() * 20}%`;
+                    }
+                    const floatDuration = Math.random() * 10 + 15;
+                    const morphDuration = Math.random() * 5 + 5;
+                    bubble.style.animationName = 'floatUp, morph';
+                    bubble.style.animationDuration = `${floatDuration}s, ${morphDuration}s`;
+                    const delay = Math.random() * -floatDuration;
+                    bubble.style.animationDelay = `${delay}s, ${delay}s`;
+                    bubbleWrapper.appendChild(bubble);
+                }
+            }
+
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollTopBtn.classList.add('visible');
+                    } else {
+                        scrollTopBtn.classList.remove('visible');
+                    }
+                });
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
