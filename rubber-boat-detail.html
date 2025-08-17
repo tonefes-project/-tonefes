@@ -23,7 +23,6 @@
         }
         .text-shadow { text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         
-        /* ★★★ ここから修正 ★★★ */
         #main-header {
             transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
@@ -56,7 +55,6 @@
         .header-btn:hover .btn-icon {
             transform: translateX(-4px);
         }
-        /* ★★★ ここまで修正 ★★★ */
 
         .main-visual {
             background-image: url('boat_race_hero.jpg');
@@ -148,7 +146,6 @@
 
     <div id="bubble-wrapper"></div>
 
-    <!-- ★★★ ここから修正 ★★★ -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="index.html" class="block">
@@ -174,7 +171,6 @@
             </svg>
         </div>
     </section>
-    <!-- ★★★ ここまで修正 ★★★ -->
 
     <main class="container mx-auto px-6 py-16 md:py-24">
         
@@ -216,68 +212,69 @@
 
         <section id="details" class="mt-20 md:mt-24 scroll-animation">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="font-poppins font-bold text-2xl text-cyan-700 border-b-4 border-cyan-200 pb-2 mb-4">ENTRY / <span class="font-m-plus">募集要項</span></h3>
-                        <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
-                            <div class="flex"><p class="w-28 font-bold text-gray-500">参加費</p><p class="font-bold text-xl text-cyan-600">無料</p></div>
-                            <div class="flex"><p class="w-28 font-bold text-gray-500">集合時間</p><p class="font-bold">午前11時 (時間厳守)</p></div>
-                            <div class="flex"><p class="w-28 font-bold text-gray-500">定員</p><p class="font-bold">10チーム (最大6名/チーム)<br><span class="text-sm font-normal text-red-600">※申込多数の場合は抽選</span></p></div>
-                            <div class="flex"><p class="w-28 font-bold text-gray-500">参加対象</p>
-                                <div class="font-bold">
-                                    <p>小学生以上の健康な方</p>
-                                    <p class="text-sm font-normal text-gray-600">※小中高生は保護者の同意書必須</p>
-                                    <p class="text-sm font-normal text-gray-600">※市民以外も参加可能</p>
-                                    <a href="path/to/your/document.docx" download class="text-sm font-bold text-cyan-600 hover:underline">※同意書はコチラ</a>
-                                </div>
+                
+                <div class="flex flex-col">
+                    <h3 class="font-poppins font-bold text-2xl text-cyan-700 border-b-4 border-cyan-200 pb-2 mb-4">ENTRY / <span class="font-m-plus">募集要項</span></h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md space-y-4 flex-grow">
+                        <div class="flex"><p class="w-28 font-bold text-gray-500">参加費</p><p class="font-bold text-xl text-cyan-600">無料</p></div>
+                        <div class="flex"><p class="w-28 font-bold text-gray-500">集合時間</p><p class="font-bold">午前11時 (時間厳守)</p></div>
+                        <div class="flex"><p class="w-28 font-bold text-gray-500">定員</p><p class="font-bold">10チーム (最大6名/チーム)<br><span class="text-sm font-normal text-red-600">※申込多数の場合は抽選</span></p></div>
+                        <div class="flex"><p class="w-28 font-bold text-gray-500">参加対象</p>
+                            <div class="font-bold">
+                                <p>小学生以上の健康な方</p>
+                                <p class="text-sm font-normal text-gray-600">※小中高生は保護者の同意書必須</p>
+                                <p class="text-sm font-normal text-gray-600">※市民以外も参加可能</p>
+                                <a href="path/to/your/document.docx" download class="text-sm font-bold text-cyan-600 hover:underline">※同意書はコチラ</a>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="font-poppins font-bold text-2xl text-amber-700 border-b-4 border-amber-200 pb-2 mb-4">AWARDS / <span class="font-m-plus">表彰</span></h3>
-                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
-                             <ul class="rule-list font-semibold">
-                                <li><svg class="icon text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>１位～３位のチームに記念品を贈呈</li>
-                                <li><svg class="icon text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" /><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h1a2 2 0 002-2V9a2 2 0 00-2-2h-1z" /></svg>参加者全員に参加賞を贈呈</li>
-                            </ul>
-                        </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <h3 class="font-poppins font-bold text-2xl text-rose-700 border-b-4 border-rose-200 pb-2 mb-4">RACE RULES / <span class="font-m-plus">ルール</span></h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex-grow">
+                        <ul class="rule-list text-sm">
+                            <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>片道約100mのコースを往復するタイムレースです。</li>
+                            <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>ボート、パドル、ライフジャケットは無料でお貸しします。</li>
+                            <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>レース中は必ずライフジャケットを着用してください。脱いだ場合は失格となります。</li>
+                            <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>1レース2隻ずつ、午後12時頃から順次スタートします。</li>
+                            <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>組み合わせは事務局で決定します。</li>
+                            <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>当日の川の状況により、ルールが変更になる場合があります。</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="font-poppins font-bold text-2xl text-rose-700 border-b-4 border-rose-200 pb-2 mb-4">RACE RULES / <span class="font-m-plus">ルール</span></h3>
-                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
-                            <ul class="rule-list text-sm">
-                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>片道約100mのコースを往復するタイムレースです。</li>
-                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>ボート、パドル、ライフジャケットは無料でお貸しします。</li>
-                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>レース中は必ずライフジャケットを着用してください。脱いだ場合は失格となります。</li>
-                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>1レース2隻ずつ、午後12時頃から順次スタートします。</li>
-                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>組み合わせは事務局で決定します。</li>
-                                <li><svg class="icon text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>当日の川の状況により、ルールが変更になる場合があります。</li>
-                            </ul>
-                        </div>
+
+                <div class="flex flex-col">
+                    <h3 class="font-poppins font-bold text-2xl text-emerald-700 border-b-4 border-emerald-200 pb-2 mb-4">WHAT TO BRING / <span class="font-m-plus">服装・持ち物</span></h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex-grow">
+                        <ul class="rule-list font-semibold">
+                            <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>濡れてもいい格好</li>
+                            <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>かかとのある運動靴/ウォーターシューズ (クロックス不可)</li>
+                            <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>濡れてもよい帽子 (自由)</li>
+                            <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>着替え</li>
+                        </ul>
                     </div>
-                    <div>
-                        <h3 class="font-poppins font-bold text-2xl text-emerald-700 border-b-4 border-emerald-200 pb-2 mb-4">WHAT TO BRING / <span class="font-m-plus">服装・持ち物</span></h3>
-                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
-                            <ul class="rule-list font-semibold">
-                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>濡れてもいい格好</li>
-                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>かかとのある運動靴/ウォーターシューズ (クロックス不可)</li>
-                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>濡れてもよい帽子 (自由)</li>
-                                <li><svg class="icon text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>着替え</li>
-                            </ul>
-                        </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <h3 class="font-poppins font-bold text-2xl text-amber-700 border-b-4 border-amber-200 pb-2 mb-4">AWARDS / <span class="font-m-plus">表彰</span></h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex-grow">
+                         <ul class="rule-list font-semibold">
+                            <li><svg class="icon text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>１位～３位のチームに記念品を贈呈</li>
+                            <li><svg class="icon text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" /><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h1a2 2 0 002-2V9a2 2 0 00-2-2h-1z" /></svg>参加者全員に参加賞を贈呈</li>
+                        </ul>
                     </div>
-                    <div class="lg:col-span-2">
-                        <h3 class="font-poppins font-bold text-2xl text-slate-700 border-b-4 border-slate-300 pb-2 mb-4">CAUTIONS / <span class="font-m-plus">注意事項</span></h3>
-                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
-                            <ul class="rule-list text-sm">
-                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>レース中に川へ飛び込んだり、泳いだりしないでください。</li>
-                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>アルコール類の持ち込み、飲酒しての参加は固く禁止します。</li>
-                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>携帯・カメラ等の貴重品は持ち込まず、ご自身で管理をお願いします。</li>
-                                <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>必ず係員の指示に従ってください。従わない場合は失格となることがあります。</li>
-                            </ul>
-                        </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h3 class="font-poppins font-bold text-2xl text-slate-700 border-b-4 border-slate-300 pb-2 mb-4">CAUTIONS / <span class="font-m-plus">注意事項</span></h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                        <ul class="rule-list text-sm">
+                            <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>レース中に川へ飛び込んだり、泳いだりしないでください。</li>
+                            <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>アルコール類の持ち込み、飲酒しての参加は固く禁止します。</li>
+                            <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>携帯・カメラ等の貴重品は持ち込まず、ご自身で管理をお願いします。</li>
+                            <li><svg class="icon text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>必ず係員の指示に従ってください。従わない場合は失格となることがあります。</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -285,7 +282,8 @@
 
         <section id="course" class="mt-20 md:mt-24 scroll-animation">
             <div class="text-center">
-                <h2 class="section-title text-4xl md:text-5xl text-cyan-600">COURSE MAP / <span class="font-m-plus">コース</span></h2>
+                <h2 class="section-title text-3xl md:text-4xl text-cyan-600">COURSE MAP</h2>
+                <p class="mt-2 text-lg font-bold text-gray-700">コース</p>
                 <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
             </div>
             <div class="mt-8 max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-lg">
@@ -298,7 +296,7 @@
         
         <section id="contact" class="mt-20 md:mt-24 scroll-animation">
             <div class="text-center">
-                <h2 class="section-title text-4xl md:text-5xl text-cyan-600">CONTACT</h2>
+                <h2 class="section-title text-3xl md:text-4xl text-cyan-600">CONTACT</h2>
                 <p class="mt-2 text-lg font-bold text-gray-700">お問い合わせ</p>
                 <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
             </div>
@@ -326,11 +324,28 @@
 
     </main>
 
-    <footer class="bg-gray-800 text-white mt-20 md:mt-32 py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 利根フェス実行委員会</p>
-        </div>
+    <!-- ★★★ ここから修正 ★★★ -->
+    <footer class="bg-gray-800 text-white mt-20 md:mt-32 py-10">
+      <div class="container mx-auto px-6 text-center text-gray-300">
+          <p class="font-bold text-lg md:text-xl text-white">お問い合わせ ▶ 羽生利根川水辺プロジェクト実行委員会事務局</p>
+          <div class="w-full max-w-2xl mx-auto border-t border-dotted border-gray-600 my-4"></div>
+          <div class="text-sm md:text-base">
+              <p>〒348-0058 埼玉県羽生市中央3-7-5 羽生市民プラザ2階 羽生市観光プロモーション課内</p>
+              <div class="mt-2 flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+                  <span>電話: 048-560-3119</span>
+                  <span>FAX: 048-562-6117</span>
+                  <span>E-mail: kankou@city.hanyu.lg.jp</span>
+              </div>
+          </div>
+          <div class="mt-6 text-base md:text-lg">
+              <p><span class="font-bold">主催:</span> 羽生利根川水辺プロジェクト実行委員会 <span class="ml-6 font-bold">後援:</span> 羽生市</p>
+          </div>
+          <div class="mt-10 border-t border-gray-700 pt-6">
+              <p class="text-sm">&copy; 2025 TONE FES Executive Committee.</p>
+          </div>
+      </div>
     </footer>
+    <!-- ★★★ ここまで修正 ★★★ -->
 
     <button id="scrollTopBtn" title="ページトップへ戻る">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
@@ -341,44 +356,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const header = document.getElementById('main-header');
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (hamburgerBtn && mobileMenu) {
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-                const closeMenu = () => {
-                    hamburgerBtn.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                };
-
-                const toggleMenu = () => {
-                    hamburgerBtn.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                };
-                
-                hamburgerBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleMenu();
-                });
-
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', closeMenu);
-                });
-
-                document.addEventListener('click', (e) => {
-                    const isMenuOpen = mobileMenu.classList.contains('active');
-                    const isClickInsideMenu = mobileMenu.contains(e.target);
-                    
-                    if (isMenuOpen && !isClickInsideMenu) {
-                        closeMenu();
-                    }
-                });
-            }
-
-
             if (header) {
                 const scrollProgressBar = document.getElementById('scroll-progress-bar');
                 window.addEventListener('scroll', () => {
@@ -394,24 +371,6 @@
                     }
                 });
             }
-            
-            const mapTabs = document.querySelectorAll('.map-tab');
-            const mapContents = document.querySelectorAll('.map-content');
-            mapTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    mapTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-
-                    const target = tab.getAttribute('data-tab');
-                    mapContents.forEach(content => {
-                        if (content.id === target) {
-                            content.classList.add('active');
-                        } else {
-                            content.classList.remove('active');
-                        }
-                    });
-                });
-            });
 
             const animatedElements = document.querySelectorAll('.scroll-animation');
             const observer = new IntersectionObserver((entries) => {
@@ -427,7 +386,10 @@
             const bubbleWrapper = document.getElementById('bubble-wrapper');
             if (bubbleWrapper) {
                 const bubbleColors = ['rgba(0, 191, 255, 0.6)', 'rgba(173, 216, 230, 0.6)', 'rgba(255, 255, 255, 0.6)'];
-                const numberOfBubbles = 40;
+                
+                const isMobile = window.innerWidth < 768;
+                const numberOfBubbles = isMobile ? 15 : 40;
+
                 for (let i = 0; i < numberOfBubbles; i++) {
                     const bubble = document.createElement('div');
                     bubble.classList.add('bubble');
