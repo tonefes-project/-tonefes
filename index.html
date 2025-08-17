@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO対策としてdescriptionとkeywordsを追加 -->
+  <meta name="description" content="2025年9月27日、埼玉県羽生市で初開催される体験型フェスティバル「利根フェス」。ゴムボート体験やテントサウナ、キッチンカーなど、子どもから大人まで楽しめるコンテンツが盛りだくさん！都心から一番近い大自然の遊び場で、忘れられない夏の思い出を。">
+  <meta name="keywords" content="利根フェス, TONE FES, 羽生市, イベント, 2025, 利根川, 川遊び, フェス, 埼玉">
   <title>利根フェス 2025 | 羽生市初開催！水と緑の体験型フェスティバル</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +27,7 @@
     }
     @media (max-width: 767px) {
       .hero-bg {
-        background-image: url('hero-top-samll.jpg');
+        background-image: url('hero-top-verysamll.jpg');
         background-size: cover;
         background-position: center;
       }
@@ -257,9 +260,10 @@
 
     <div class="absolute inset-0 flex items-center justify-center text-white">
       <div class="absolute inset-0 bg-black/30"></div>
-      <div class="relative z-10 text-center p-4 flex flex-col items-center">
-        <div class="fade-in-up">
-          <img src="logo_hero.png" alt="TONE FES ロゴ" class="w-full max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+      <div class="relative z-10 text-center w-full py-4 md:p-4 flex flex-col items-center">
+        <div class="fade-in-up w-full px-2">
+          <!-- ロゴサイズをPC・タブレット用に調整 -->
+          <img src="logo_hero.png" alt="TONE FES 2025 in HANYU" class="w-full max-w-full md:max-w-xl lg:max-w-2xl mx-auto" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
         </div>
       </div>
     </div>
@@ -342,7 +346,8 @@
               <h3 class="font-poppins font-bold text-2xl">ACTIVE ZONE</h3>
               <p class="font-semibold">思いっきり遊ぶ！</p>
             </div>
-            <img src="activezone.jpg" alt="アクティブゾーンのイメージ画像" class="w-full h-48 object-cover">
+            <!-- アクセシビリティ向上のためalt属性を修正 -->
+            <img src="activezone.jpg" alt="利根川の浅瀬で子供たちが楽しそうに水遊びをしている様子" class="w-full h-48 object-cover">
             <div class="p-6">
               <ul class="space-y-3 text-gray-600">
                 <li class="flex items-center"><span class="text-cyan-500 mr-2">●</span>ゴムボート川下り体験</li>
@@ -356,7 +361,8 @@
               <h3 class="font-poppins font-bold text-2xl">RELAX & CHILL</h3>
               <p class="font-semibold">川のほとりで癒される</p>
             </div>
-            <img src="sauna.jpg" alt="リラックスゾーンのテントサウナ" class="w-full h-48 object-cover">
+            <!-- アクセシビリティ向上のためalt属性を修正 -->
+            <img src="sauna.jpg" alt="川岸に設置されたテントサウナと、リラックスして座る人々" class="w-full h-48 object-cover">
             <div class="p-6">
               <ul class="space-y-3 text-gray-600">
                 <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>テントサウナ</li>
@@ -370,7 +376,8 @@
               <h3 class="font-poppins font-bold text-2xl">KIDS & FAMILY</h3>
               <p class="font-semibold">親子で学ぶ・知る！</p>
             </div>
-            <img src="kids.jpg" alt="キッズ＆ファミリーゾーンのイメージ画像" class="w-full h-48 object-cover">
+            <!-- アクセシビリティ向上のためalt属性を修正 -->
+            <img src="kids.jpg" alt="子供たちが川の生き物について学んでいる様子" class="w-full h-48 object-cover">
             <div class="p-6">
               <ul class="space-y-3 text-gray-600">
                 <li class="flex items-center"><span class="text-amber-500 mr-2">●</span>河川学習</li>
@@ -384,7 +391,8 @@
               <h3 class="font-poppins font-bold text-2xl">GOURMET AREA</h3>
               <p class="font-semibold">お腹も大満足！</p>
             </div>
-            <img src="kitchencar.jpg" alt="グルメエリアのキッチンカー" class="w-full h-48 object-cover">
+            <!-- アクセシビリティ向上のためalt属性を修正 -->
+            <img src="kitchencar.jpg" alt="青空の下、カラフルなキッチンカーが並んでいる様子" class="w-full h-48 object-cover">
             <div class="p-6">
               <p class="text-gray-600">
                 青空の下でめしあがれ！羽生グルメがキッチンカーで大集合！たくさん遊んだあとは、美味しいごはんでエネルギーチャージ！
@@ -448,12 +456,14 @@
             <div class="p-4 pt-0">
               <div id="custom-map" class="map-content active">
                 <div class="aspect-w-16 aspect-h-9 h-96 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-                   <img src="map.jpg" alt="会場地図" class="w-full h-full object-contain">
+                   <!-- アクセシビリティ向上のためalt属性を修正 -->
+                   <img src="map.jpg" alt="利根川と昭和橋、そしてイベント会場の砂州の位置を示した地図" class="w-full h-full object-contain">
                 </div>
               </div>
               <div id="gmap" class="map-content">
                 <div class="aspect-w-16 aspect-h-9 h-96 rounded-lg overflow-hidden">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.0868285683387!2d139.51085609999998!3d36.1887701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f2e6abe6c28e9%3A0x28fd03495847e070!2z6YGT44Gu6aeFIOOBr-OBq-OCheOBhg!5e0!3m2!1sja!2sjp!4v1755291714755!5m2!1sja!2sjp" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <!-- ご指定のGoogle Map埋め込みコードに差し替え -->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.0868285683387!2d139.51085609999998!3d36.1887701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f2e6abe6c28e9%3A0x28fd03495847e070!2z6YGT44Gu6aeFIOOBr-OBq-OCheOBhg!5e0!3m2!1sja!2sjp!4v1755405781250!5m2!1sja!2sjp" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
             </div>
@@ -463,168 +473,158 @@
     </section>
   </main>
 
-  <footer class="relative bg-cyan-500 text-white pt-10 pb-10 ">
-    <div class="absolute top-0 left-0 w-full overflow-hidden leading-none" style="transform: translateY(-100%);" aria-hidden="true">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[40px] md:h-[60px]">
-        <path d="M0,60 C150,120 250,0 400,60 C550,120 650,0 800,60 C950,120 1050,0 1200,60 L1200,120 L0,120 Z" class="fill-cyan-500"></path>
-      </svg>
-    </div>
+  <footer class="bg-gray-800 text-white mt-20 md:mt-32 py-10">
+      <div class="container mx-auto px-6 text-center text-gray-300">
+          <p class="font-bold text-lg md:text-xl text-white">お問い合わせ ▶ 羽生利根川水辺プロジェクト実行委員会事務局</p>
+          <div class="w-full max-w-2xl mx-auto border-t border-dotted border-gray-600 my-4"></div>
+          <div class="text-sm md:text-base">
+              <p>〒348-0058 埼玉県羽生市中央3-7-5 羽生市民プラザ2階 羽生市観光プロモーション課内</p>
+              <div class="mt-2 flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+                  <span>電話: 048-560-3119</span>
+                  <span>FAX: 048-562-6117</span>
+                  <span>E-mail: kankou@city.hanyu.lg.jp</span>
+              </div>
+          </div>
+          <div class="mt-6 text-base md:text-lg">
+              <p><span class="font-bold">主催:</span> 羽生利根川水辺プロジェクト実行委員会 <span class="ml-6 font-bold">後援:</span> 羽生市</p>
+          </div>
+          <div class="mt-10 border-t border-gray-700 pt-6">
+              <p class="text-sm">&copy; 2025 TONE FES Executive Committee. <a href="privacy-policy.html" class="underline hover:text-white">プライバシーポリシー</a></p>
+          </div>
+      </div>
+    </footer>
 
-    <div class="relative z-10 container mx-auto px-6 text-center text-cyan-100">
-        <p class="font-bold text-lg md:text-xl">お問い合わせ ▶ 羽生利根川水辺プロジェクト実行委員会事務局</p>
-        <div class="w-full max-w-2xl mx-auto border-t border-dotted border-cyan-300 my-4"></div>
-        <div class="text-sm md:text-base">
-            <p>〒348-0058 埼玉県羽生市中央3-7-5 羽生市民プラザ2階 羽生市観光プロモーション課内</p>
-            <div class="mt-2 flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
-                <span>電話: 048-560-3119</span>
-                <span>FAX: 048-562-6117</span>
-                <span>E-mail: kankou@city.hanyu.lg.jp</span>
-            </div>
-        </div>
-        <div class="mt-6 text-base md:text-lg">
-            <p><span class="font-bold">主催:</span> 羽生利根川水辺プロジェクト実行委員会 <span class="ml-6 font-bold">後援:</span> 羽生市</p>
-        </div>
-        <div class="mt-10 border-t border-cyan-400 pt-6">
-            <p class="text-sm">&copy; 2025 TONE FES Executive Committee. <a href="privacy-policy.html" class="underline hover:text-white">プライバシーポリシー</a></p>
-        </div>
-    </div>
+    <button id="scrollTopBtn" title="ページトップへ戻る">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
 
-  </footer>
-
-
-  <button id="scrollTopBtn" title="ページトップへ戻る">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-    </svg>
-  </button>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.getElementById('main-header');
-      const hamburgerBtn = document.getElementById('hamburger-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (hamburgerBtn && mobileMenu) {
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-        const closeMenu = () => {
-          hamburgerBtn.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          document.body.classList.remove('menu-open');
-        };
-
-        const toggleMenu = () => {
-          hamburgerBtn.classList.toggle('active');
-          mobileMenu.classList.toggle('active');
-          document.body.classList.toggle('menu-open');
-        };
-        
-        hamburgerBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          toggleMenu();
-        });
-
-        mobileMenuLinks.forEach(link => {
-          link.addEventListener('click', closeMenu);
-        });
-
-        document.addEventListener('click', (e) => {
-          const isMenuOpen = mobileMenu.classList.contains('active');
-          const isClickInsideMenu = mobileMenu.contains(e.target);
-          
-          if (isMenuOpen && !isClickInsideMenu) {
-            closeMenu();
-          }
-        });
-      }
-
-
-      if (header) {
-        const scrollProgressBar = document.getElementById('scroll-progress-bar');
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-          } else {
-            header.classList.remove('scrolled');
-          }
-          if(scrollProgressBar){
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollProgress = (window.scrollY / totalHeight) * 100;
-            scrollProgressBar.style.width = `${scrollProgress}%`;
-          }
-        });
-      }
-      
-      const mapTabs = document.querySelectorAll('.map-tab');
-      const mapContents = document.querySelectorAll('.map-content');
-      mapTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          mapTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-
-          const target = tab.getAttribute('data-tab');
-          mapContents.forEach(content => {
-            if (content.id === target) {
-              content.classList.add('active');
-            } else {
-              content.classList.remove('active');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- ヘッダーのスクロール制御 ---
+            const header = document.getElementById('main-header');
+            if (header) {
+                const scrollProgressBar = document.getElementById('scroll-progress-bar');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                    if(scrollProgressBar){
+                        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        const scrollProgress = (window.scrollY / totalHeight) * 100;
+                        scrollProgressBar.style.width = `${scrollProgress}%`;
+                    }
+                });
             }
-          });
-        });
-      });
 
-      const animatedElements = document.querySelectorAll('.scroll-animation');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      animatedElements.forEach(el => observer.observe(el));
+            // --- スクロールアニメーション ---
+            const animatedElements = document.querySelectorAll('.scroll-animation');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
 
-      const bubbleWrapper = document.getElementById('bubble-wrapper');
-      if (bubbleWrapper) {
-        const bubbleColors = ['rgba(0, 191, 255, 0.6)', 'rgba(173, 216, 230, 0.6)', 'rgba(255, 255, 255, 0.6)'];
-        const isMobile = window.innerWidth < 768;
-        const numberOfBubbles = isMobile ? 15 : 40;
-        for (let i = 0; i < numberOfBubbles; i++) {
-          const bubble = document.createElement('div');
-          bubble.classList.add('bubble');
-          const size = Math.random() * 30 + 10; 
-          bubble.style.width = `${size}px`;
-          bubble.style.height = `${size}px`;
-          bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
-          if (Math.random() > 0.5) {
-            bubble.style.left = `${Math.random() * 20}%`;
-          } else {
-            bubble.style.right = `${Math.random() * 20}%`;
-          }
-          const floatDuration = Math.random() * 10 + 15;
-          const morphDuration = Math.random() * 5 + 5;
-          bubble.style.animationName = 'floatUp, morph';
-          bubble.style.animationDuration = `${floatDuration}s, ${morphDuration}s`;
-          const delay = Math.random() * -floatDuration;
-          bubble.style.animationDelay = `${delay}s, ${delay}s`;
-          bubbleWrapper.appendChild(bubble);
-        }
-      }
+            // --- 背景のバブルアニメーション ---
+            const bubbleWrapper = document.getElementById('bubble-wrapper');
+            if (bubbleWrapper) {
+                const bubbleColors = ['rgba(0, 191, 255, 0.6)', 'rgba(173, 216, 230, 0.6)', 'rgba(255, 255, 255, 0.6)'];
+                const isMobile = window.innerWidth < 768;
+                const numberOfBubbles = isMobile ? 15 : 40;
 
-      const scrollTopBtn = document.getElementById('scrollTopBtn');
-      if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 300) {
-            scrollTopBtn.classList.add('visible');
-          } else {
-            scrollTopBtn.classList.remove('visible');
-          }
+                for (let i = 0; i < numberOfBubbles; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    const size = Math.random() * 30 + 10; 
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+                    if (Math.random() > 0.5) {
+                        bubble.style.left = `${Math.random() * 20}%`;
+                    } else {
+                        bubble.style.right = `${Math.random() * 20}%`;
+                    }
+                    const floatDuration = Math.random() * 10 + 15;
+                    const morphDuration = Math.random() * 5 + 5;
+                    bubble.style.animationName = 'floatUp, morph';
+                    bubble.style.animationDuration = `${floatDuration}s, ${morphDuration}s`;
+                    const delay = Math.random() * -floatDuration;
+                    bubble.style.animationDelay = `${delay}s, ${delay}s`;
+                    bubbleWrapper.appendChild(bubble);
+                }
+            }
+
+            // --- トップへ戻るボタン ---
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollTopBtn.classList.add('visible');
+                    } else {
+                        scrollTopBtn.classList.remove('visible');
+                    }
+                });
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // --- ここから修正・追加したJavaScript ---
+
+            // --- ハンバーガーメニューの制御 ---
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const body = document.body;
+
+            if (hamburgerBtn && mobileMenu) {
+              hamburgerBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                hamburgerBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                body.classList.toggle('menu-open');
+              });
+
+              mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                  hamburgerBtn.classList.remove('active');
+                  mobileMenu.classList.remove('active');
+                  body.classList.remove('menu-open');
+                });
+              });
+
+              document.addEventListener('click', (e) => {
+                  if (mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                      hamburgerBtn.classList.remove('active');
+                      mobileMenu.classList.remove('active');
+                      body.classList.remove('menu-open');
+                  }
+              });
+            }
+
+            // --- マップのタブ切り替え制御 ---
+            const mapTabs = document.querySelectorAll('.map-tab');
+            const mapContents = document.querySelectorAll('.map-content');
+
+            mapTabs.forEach(tab => {
+              tab.addEventListener('click', () => {
+                mapTabs.forEach(t => t.classList.remove('active'));
+                mapContents.forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                const targetContent = document.getElementById(tab.dataset.tab);
+                if (targetContent) {
+                  targetContent.classList.add('active');
+                }
+              });
+            });
         });
-        scrollTopBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
