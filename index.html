@@ -264,7 +264,8 @@
     </div>
 
     <div class="absolute inset-0 flex items-center justify-center text-white">
-      <div class="absolute inset-0 bg-black/30"></div>
+      <!-- ↓↓ 黒いマット（オーバーレイ）のdivを削除しました ↓↓ -->
+      <!-- <div class="absolute inset-0 bg-black/30"></div> -->
       <div class="relative z-10 text-center w-full py-4 md:p-4 flex flex-col items-center">
         <div class="fade-in-up w-full px-2">
           <!-- ロゴサイズをPC・タブレット用に調整 -->
@@ -444,7 +445,7 @@
           <div class="bg-white p-8 rounded-xl shadow-lg scroll-animation mb-8">
             <h3 class="font-bold text-2xl text-gray-800 border-b-2 border-cyan-300 pb-2">開催概要</h3>
             <dl class="mt-6 space-y-4">
-              <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">日時</dt><dd class="flex-1">2025年9月27日(土) 10:00-15:00 <br><span class="text-sm text-red-500">※雨天中止</span></dd></div>
+              <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">日時</dt><dd class="flex-1">2025年9月27日(土) 10:00-15:00 <br><span class="text-sm text-red-500">※荒天中止</span></dd></div>
               <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">会場</dt><dd class="flex-1">利根川右岸 昭和橋上流の砂州</dd></div>
               <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">参加費</dt><dd class="flex-1">入場無料<br><span class="text-sm text-gray-500">※一部コンテンツは有料の場合あり</span></dd></div>
               <div class="flex flex-col sm:flex-row"><dt class="w-24 font-bold text-gray-700">持ち物</dt><dd class="flex-1"><span class="font-semibold">必須:</span> タオル, 着替え, 帽子, 飲み物<br><span class="font-semibold">推奨:</span> 日焼け止め, ウォーターシューズ, 防水ケース</dd></div>
@@ -580,8 +581,6 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
-
-            // --- ここから修正・追加したJavaScript ---
 
             // --- ハンバーガーメニューの制御 ---
             const hamburgerBtn = document.getElementById('hamburger-btn');
