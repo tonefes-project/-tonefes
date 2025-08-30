@@ -12,7 +12,7 @@
   <meta name="google-site-verification" content="JAd5fVPDiKjwqgvEPQ6782mxBCPbn9yIbcaThilEo6s" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Poppins:wght@600;700;800&family=Yusei+Magic&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
@@ -240,7 +240,8 @@
         <nav class="hidden md:flex items-center space-x-8">
           <a href="#concept" class="nav-link text-white font-bold text-shadow">コンセプト</a>
           <a href="#attractions" class="nav-link text-white font-bold text-shadow">3つの楽しみ方</a>
-          <a href="#rubber-boat" class="nav-link text-white font-bold text-shadow">特別イベント</a>
+          <a href="#mizukiri-tournament" class="nav-link text-white font-bold text-shadow">水切り大会</a>
+          <a href="#rubber-boat" class="nav-link text-white font-bold text-shadow">ボートレース</a>
           <a href="#details" class="nav-link text-white font-bold text-shadow">詳細・アクセス</a>
         </nav>
         <button id="hamburger-btn" class="hamburger md:hidden w-8 h-6 flex flex-col justify-between z-50">
@@ -256,8 +257,9 @@
       <nav class="flex flex-col space-y-8 text-center">
         <a href="#concept" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.1s;">コンセプト</a>
         <a href="#attractions" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.2s;">3つの楽しみ方</a>
-        <a href="#rubber-boat" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.3s;">特別イベント</a>
-        <a href="#details" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.4s;">詳細・アクセス</a>
+        <a href="#mizukiri-tournament" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.3s;">水切り大会</a>
+        <a href="#rubber-boat" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.4s;">ボートレース</a>
+        <a href="#details" class="text-2xl font-bold text-cyan-800" style="transition-delay: 0.5s;">詳細・アクセス</a>
       </nav>
     </div>
 
@@ -308,7 +310,6 @@
           </div>
         </div>
       </div>
-      <!-- ▼▼▼ 更新情報 ▼▼▼ -->
       <div class="mt-12 scroll-animation">
         <div class="max-w-2xl mx-auto bg-white/70 backdrop-blur-sm rounded-xl p-6 text-center border-2 border-cyan-300 shadow-cyan-500/10 shadow-xl">
           <p class="font-yusei text-cyan-700 text-xl md:text-2xl tracking-wider">
@@ -317,8 +318,7 @@
           </p>
         </div>
       </div>
-      <!-- ▲▲▲ ここまで ▲▲▲ -->
-    </div>
+      </div>
   </section>
 
   <main class="relative">
@@ -356,7 +356,6 @@
     
         <div class="mt-16 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
           
-          <!-- Card 1: 親しむ -->
           <div class="bg-white rounded-xl overflow-hidden shadow-lg scroll-animation flex flex-col transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <img src="activezone.jpg" alt="利根川の浅瀬で子供たちが楽しそうに水遊びをしている様子" class="w-full h-48 object-cover">
             <div class="p-6 text-center bg-cyan-50">
@@ -371,7 +370,8 @@
               <div class="flex-grow space-y-3 text-gray-700 text-left">
                 <div>
                   <h4 class="font-bold flex items-start"><span class="text-cyan-500 mr-2 mt-1 shrink-0">●</span><span>川流れ体験</span></h4>
-                  <p class="text-xs pl-5 text-gray-500">ライフジャケットを装着し、水に流される体験ができます。</p>
+                  <p class="text-xs pl-5 text-gray-500">ライフジャケットを装着し、水遊びゾーンで水に流される体験ができます。</p>
+                  <p class="text-xs pl-5 text-gray-500">実施時間：10:30～ / 11:30～ / 13:30～ / 14:30～<br>（各回30分：準備10分、水遊び20分）</p>
                 </div>
                 <div>
                   <h4 class="font-bold flex items-start"><span class="text-cyan-500 mr-2 mt-1 shrink-0">●</span><span>水鉄砲・水遊びゾーン</span></h4>
@@ -387,7 +387,6 @@
             </div>
           </div>
     
-          <!-- Card 2: 楽しむ -->
           <div class="bg-white rounded-xl overflow-hidden shadow-lg scroll-animation flex flex-col transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl" style="transition-delay: 0.1s;">
             <img src="sauna.jpg" alt="川岸に設置されたテントサウナと、リラックスして座る人々" class="w-full h-48 object-cover">
             <div class="p-6 text-center bg-emerald-50">
@@ -399,17 +398,20 @@
             </div>
             <div class="p-6 flex-grow flex flex-col">
               <p class="text-gray-600 mb-4 text-sm">水遊び以外にも、水辺でのさまざまな楽しみを体験しよう。</p>
-              <ul class="space-y-3 text-gray-700 font-semibold flex-grow text-left">
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>テントサウナ</li>
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>石ころアート</li>
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>水切り</li>
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>グルメの出店販売</li>
-                <li class="flex items-center"><span class="text-emerald-500 mr-2">●</span>スタンプラリー</li>
-              </ul>
+              <div class="flex-grow space-y-3 text-gray-700 text-left">
+                <div>
+                    <h4 class="font-bold flex items-start"><span class="text-emerald-500 mr-2 mt-1 shrink-0">●</span><span>テントサウナ</span></h4>
+                    <p class="text-xs pl-5 text-gray-500">実施時間：10:00～12:00 / 13:00～15:00</p>
+                    <p class="text-xs pl-5 text-gray-500">※テントサウナの台数に限りがありますので、入れ替わりでのご案内になります。</p>
+                </div>
+                <h4 class="font-bold flex items-center pt-1"><span class="text-emerald-500 mr-2">●</span>石ころアート</h4>
+                <h4 class="font-bold flex items-center"><span class="text-emerald-500 mr-2">●</span>水切り</h4>
+                <h4 class="font-bold flex items-center"><span class="text-emerald-500 mr-2">●</span>グルメの出店販売</h4>
+                <h4 class="font-bold flex items-center"><span class="text-emerald-500 mr-2">●</span>スタンプラリー</h4>
+              </div>
             </div>
           </div>
           
-          <!-- Card 3: 知る -->
           <div class="bg-white rounded-xl overflow-hidden shadow-lg scroll-animation flex flex-col transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl" style="transition-delay: 0.2s;">
             <img src="kids.jpg" alt="子供たちが川の生き物について学んでいる様子" class="w-full h-48 object-cover">
             <div class="p-6 text-center bg-amber-50">
@@ -433,7 +435,56 @@
       </div>
     </section>
 
-    <section id="rubber-boat" class="bg-cyan-50 py-20 md:py-32">
+    <section id="mizukiri-tournament" class="bg-cyan-50 pt-20 pb-20 md:pt-32 md:pb-32">
+      <div class="container mx-auto px-6">
+        <div class="text-center scroll-animation">
+          <h2 class="section-title text-4xl md:text-5xl text-cyan-600">FEATURED EVENT</h2>
+          <p class="mt-2 text-lg font-bold text-gray-700">水切り大会</p>
+          <div class="w-24 h-1 bg-cyan-400 mx-auto mt-6"></div>
+        </div>
+        <div class="mt-16 max-w-4xl mx-auto md:flex items-center gap-8">
+          <div class="md:w-1/2 scroll-animation">
+            <img src="mizukiri.png" alt="川で水切りをしている様子" class="rounded-xl shadow-lg w-full">
+          </div>
+          <div class="md:w-1/2 mt-8 md:mt-0 scroll-animation" style="transition-delay: 0.1s;">
+            <div class="text-left">
+                <h3 class="font-bold text-2xl text-gray-800">仲間と力を合わせ、水面の覇者となれ！<br>初代水切りチームチャンピオンを目指せ！</h3>
+                <p class="mt-4 text-gray-600 leading-relaxed">
+                    子どもの頃、誰もが夢中になった水切り。あの日磨いたテクニックを利根川の大舞台で披露しよう！<br>
+                    子どもも大人も、チーム戦でガチで競うトーナメント大会です。
+                </p>
+            </div>
+            <div class="mt-6 bg-white p-4 rounded-lg border-l-4 border-cyan-400 text-sm">
+              <dl class="space-y-4">
+                <div class="flex flex-col sm:flex-row">
+                  <dt class="w-full sm:w-28 font-bold text-gray-700 shrink-0">実施時間</dt>
+                  <dd class="flex-1 mt-1 sm:mt-0">第1部 11:00〜12:00 / 第2部 13:00〜14:00 (計2回実施)</dd>
+                </div>
+                <div class="flex flex-col sm:flex-row">
+                  <dt class="w-full sm:w-28 font-bold text-gray-700 shrink-0">エントリー</dt>
+                  <dd class="flex-1 mt-1 sm:mt-0">各回、開始時間の15分前までに受付を完了してください。</dd>
+                </div>
+                <div class="flex flex-col sm:flex-row">
+                  <dt class="w-full sm:w-28 font-bold text-gray-700 shrink-0">競技方法</dt>
+                  <dd class="flex-1 mt-1 sm:mt-0">
+                    <ul class="space-y-2">
+                      <li class="flex items-start"><span class="mr-2">①</span><span>トーナメント方式（対戦表は当日決定します）</span></li>
+                      <li class="flex items-start"><span class="mr-2">②</span><span>1人につき2投まで投げ、一番良い記録で勝敗を決定します。</span></li>
+                      <li class="flex items-start"><span class="mr-2">③</span><span>各部の1位〜3位のチームに記念品を贈呈します。</span></li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            <div class="mt-6 text-center text-xs text-red-600">
+              <p>※当日のエントリー数によって、試合方法を変更する場合がございます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rubber-boat" class="bg-white py-20 md:py-32">
         <div class="container mx-auto px-6">
           <div class="text-center scroll-animation">
             <h2 class="section-title text-4xl md:text-5xl text-cyan-600">SPECIAL EVENT</h2>
